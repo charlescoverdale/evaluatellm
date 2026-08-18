@@ -1,0 +1,16 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^\.github$
+^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^cran-comments\.md$
+^evalkit_.*\.tar\.gz$
+^CRAN-SUBMISSION$
+^paper$
+^Makefile$
+^llms.*\.txt$
+^Rplots\.pdf$
+^.*\.Rcheck$

@@ -1,0 +1,49 @@
+url: https://charlescoverdale.github.io/evalkit/
+
+template:
+  bootstrap: 5
+
+reference:
+  - title: "Core"
+    contents:
+      - as_eval
+
+  - title: "Scoring a Single Model"
+    contents:
+      - ev_score
+      - ev_cluster
+      - ev_icc
+      - ev_resample
+      - ev_bootstrap
+
+  - title: "Comparing Models"
+    contents:
+      - ev_paired
+      - ev_unpaired
+      - ev_variance_reduction
+      - ev_multi
+
+  - title: "Planning an Evaluation"
+    contents:
+      - ev_power
+      - ev_mde
+
+  - title: "Model Judges"
+    contents:
+      - ev_judge_agreement
+      - ev_judge_debias
+      - ev_judge_power
+
+  - title: "Leaderboards"
+    contents:
+      - ev_rank
+      - ev_elo
+
+  - title: "Reporting"
+    contents:
+      - ev_table
+      - ev_plot
+
+  - title: "Package"
+    contents:
+      - evalkit-package
