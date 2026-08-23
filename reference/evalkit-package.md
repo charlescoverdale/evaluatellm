@@ -1,0 +1,37 @@
+# evalkit: Statistical Inference for Language Model Evaluations
+
+Treats language model evaluations as statistical experiments and
+supplies the inference they require. Provides central limit theorem and
+cluster-robust standard errors for evaluation scores, paired and
+unpaired model comparisons, variance decomposition when several
+responses are drawn per question, control-variate variance reduction,
+multiplicity adjustment across benchmark suites, and power and minimum
+detectable effect calculations for planning evaluations, following
+Miller (2024)
+[doi:10.48550/arXiv.2411.00640](https://doi.org/10.48550/arXiv.2411.00640)
+. For evaluations scored by a model judge, implements agreement
+statistics against a human gold standard and prediction-powered
+inference (Angelopoulos et al. 2023)
+[doi:10.1126/science.adi6000](https://doi.org/10.1126/science.adi6000)
+with the power-tuned estimator of Angelopoulos, Bates and Jordan (2023)
+[doi:10.48550/arXiv.2311.01453](https://doi.org/10.48550/arXiv.2311.01453)
+, so a small set of human labels debiases a large set of judge scores.
+Leaderboards are supported through bootstrap rank intervals and
+Bradley-Terry ratings (Bradley and Terry 1952)
+[doi:10.2307/2334029](https://doi.org/10.2307/2334029) . Accepts scores
+from any evaluation harness.
+
+## See also
+
+Useful links:
+
+- <https://charlescoverdale.github.io/evalkit/>
+
+- <https://github.com/charlescoverdale/evalkit>
+
+- Report bugs at <https://github.com/charlescoverdale/evalkit/issues>
+
+## Author
+
+**Maintainer**: Charles Coverdale <charlesfcoverdale@gmail.com>
+\[copyright holder\]
