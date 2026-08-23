@@ -1,9 +1,13 @@
 # evalkit
 
 <!-- badges: start -->
+<!-- Re-add on CRAN acceptance; both 404 until the package page exists, and
+     README.md ships in the tarball so CRAN's incoming URL check would flag it:
 [![CRAN status](https://www.r-pkg.org/badges/version/evalkit)](https://CRAN.R-project.org/package=evalkit)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/evalkit)](https://CRAN.R-project.org/package=evalkit)
+-->
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Docs](https://img.shields.io/badge/docs-pkgdown-blue.svg)](https://charlescoverdale.github.io/evalkit/)
 <!-- badges: end -->
 
 Language model evaluations are experiments, and experiments have standard
