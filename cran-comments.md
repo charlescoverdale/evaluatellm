@@ -5,7 +5,12 @@
 ## Test environments
 
 - macOS Tahoe 26.5 (local, aarch64), R 4.5.2, `--as-cran --run-donttest`
-- win-builder, R-release and R-devel: submitted, results pending
+- win-builder, R-devel and R-release: submitted 23 August 2026, results
+  pending at the time of writing
+
+The earlier win-builder runs recorded here were made under the package's
+previous name and have been removed rather than carried over, since they
+do not correspond to this tarball.
 
 ## Submission notes
 
