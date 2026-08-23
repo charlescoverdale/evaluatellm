@@ -35,7 +35,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="evaluatellm-010">evaluatellm 0.1.0<a class="anchor" aria-label="anchor" href="#evaluatellm-010"></a></h2>
-<p>First release.</p>
+<p>Pre-submission audit fixes, ahead of the first CRAN release.</p>
+<ul><li><p><code><a href="../reference/ev_bootstrap.html">ev_bootstrap()</a></code> and <code><a href="../reference/ev_rank.html">ev_rank()</a></code> called <code><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed()</a></code> on the global random stream and left it altered. A user who passed <code>seed</code> to make one call reproducible found every later random draw in their session silently shifted. The seed now applies for the duration of the call only and the user’s <code>.Random.seed</code> is restored on exit. Seeded calls remain reproducible and unseeded calls still vary.</p></li>
+<li><p><code><a href="../reference/ev_score.html">ev_score()</a></code> and <code><a href="../reference/ev_cluster.html">ev_cluster()</a></code> now warn when the interval has degenerated. A slice where every item passes gives a zero standard error, so the Wald interval collapses to a point and appears to claim certainty: 50 of 50 correct reported <code>[1.0000, 1.0000]</code> where Wilson gives about <code>[0.93, 1.00]</code>. Too few clusters pushes a pass rate’s interval outside <code>[0, 1]</code>. Both are properties of the normal approximation rather than errors, so they warn rather than abort, and the binary case quotes the Wilson interval for comparison.</p></li>
+<li><p>README gains a Limitations section covering the interval method and where it degrades, the cluster-count requirement, the random-sampling assumption behind prediction-powered inference, and the difference between judge agreement and judge accuracy.</p></li>
+</ul><p>First release.</p>
 <p>Statistical inference for language model evaluations, following Miller (2024) <a href="doi:10.48550/arXiv.2411.00640" class="uri">doi:10.48550/arXiv.2411.00640</a> for the core standard error and experiment design results, and the prediction-powered inference literature for the model judge functions.</p>
 <div class="section level3">
 <h3 id="scoring-0-1-0">Scoring<a class="anchor" aria-label="anchor" href="#scoring-0-1-0"></a></h3>

@@ -168,6 +168,47 @@ or a simulation in the test suite:
   [`stats::power.t.test()`](https://rdrr.io/r/stats/power.t.test.html)
   to within the difference between normal and t quantiles.
 
+## Limitations
+
+**Intervals are the normal approximation.** Following Miller (2024), the
+standard errors and confidence intervals are the CLT-based Wald form,
+computed on the t distribution. That is the right default for a
+benchmark of a few hundred items, and it has two known failure points at
+the edges.
+
+The first is a slice where every item passes or every item fails. The
+standard error is then exactly zero and the interval collapses to a
+point, which looks like certainty but is not: 50 out of 50 correct gives
+a Wilson interval of about \[0.93, 1.00\], not \[1.00, 1.00\]. The
+second is a handful of clusters, where the t multiplier is large enough
+to push the interval outside \[0, 1\], which is not a range a pass rate
+can occupy. Both cases now warn. Treat the interval as uninformative
+rather than clipping it, and if you need a bound at the boundary, use an
+exact method such as Wilson or Clopper-Pearson.
+
+**Cluster-robust inference needs enough clusters.** The asymptotics are
+in the number of clusters, not the number of items. Below roughly 30
+clusters the standard errors are biased downward, and
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md)
+reports the cluster count so you can judge that. Very few clusters
+trigger the interval warning above.
+
+**Prediction-powered inference assumes the labelled subset is random.**
+If the human-labelled items were chosen because they looked hard, or
+interesting, or were the first 200 in the file,
+[`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md)
+will produce a confident answer to the wrong question. The guarantee
+comes from the sampling design, which the package cannot check.
+
+**Judge agreement is not judge accuracy.** High kappa between a model
+judge and a human means they agree, including where they are both wrong
+in the same direction. It is a necessary condition for trusting a judge,
+not a sufficient one.
+
+**The package does not run evaluations.** It takes scores that already
+exist. Anything about prompting, sampling temperature, or harness
+configuration is out of scope and upstream of everything here.
+
 ## Working with other tools
 
 `evaluatellm` consumes scores, so it sits downstream of whatever

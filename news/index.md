@@ -2,6 +2,35 @@
 
 ## evaluatellm 0.1.0
 
+Pre-submission audit fixes, ahead of the first CRAN release.
+
+- [`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md)
+  and
+  [`ev_rank()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_rank.md)
+  called [`set.seed()`](https://rdrr.io/r/base/Random.html) on the
+  global random stream and left it altered. A user who passed `seed` to
+  make one call reproducible found every later random draw in their
+  session silently shifted. The seed now applies for the duration of the
+  call only and the user’s `.Random.seed` is restored on exit. Seeded
+  calls remain reproducible and unseeded calls still vary.
+
+- [`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md)
+  and
+  [`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md)
+  now warn when the interval has degenerated. A slice where every item
+  passes gives a zero standard error, so the Wald interval collapses to
+  a point and appears to claim certainty: 50 of 50 correct reported
+  `[1.0000, 1.0000]` where Wilson gives about `[0.93, 1.00]`. Too few
+  clusters pushes a pass rate’s interval outside `[0, 1]`. Both are
+  properties of the normal approximation rather than errors, so they
+  warn rather than abort, and the binary case quotes the Wilson interval
+  for comparison.
+
+- README gains a Limitations section covering the interval method and
+  where it degrades, the cluster-count requirement, the random-sampling
+  assumption behind prediction-powered inference, and the difference
+  between judge agreement and judge accuracy.
+
 First release.
 
 Statistical inference for language model evaluations, following Miller

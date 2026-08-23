@@ -249,6 +249,16 @@
 </ul>
 </div>
 <div class="section level2">
+<h2 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
+</h2>
+<p><strong>Intervals are the normal approximation.</strong> Following Miller (2024), the standard errors and confidence intervals are the CLT-based Wald form, computed on the t distribution. That is the right default for a benchmark of a few hundred items, and it has two known failure points at the edges.</p>
+<p>The first is a slice where every item passes or every item fails. The standard error is then exactly zero and the interval collapses to a point, which looks like certainty but is not: 50 out of 50 correct gives a Wilson interval of about [0.93, 1.00], not [1.00, 1.00]. The second is a handful of clusters, where the t multiplier is large enough to push the interval outside [0, 1], which is not a range a pass rate can occupy. Both cases now warn. Treat the interval as uninformative rather than clipping it, and if you need a bound at the boundary, use an exact method such as Wilson or Clopper-Pearson.</p>
+<p><strong>Cluster-robust inference needs enough clusters.</strong> The asymptotics are in the number of clusters, not the number of items. Below roughly 30 clusters the standard errors are biased downward, and <code><a href="reference/ev_cluster.html">ev_cluster()</a></code> reports the cluster count so you can judge that. Very few clusters trigger the interval warning above.</p>
+<p><strong>Prediction-powered inference assumes the labelled subset is random.</strong> If the human-labelled items were chosen because they looked hard, or interesting, or were the first 200 in the file, <code><a href="reference/ev_judge_debias.html">ev_judge_debias()</a></code> will produce a confident answer to the wrong question. The guarantee comes from the sampling design, which the package cannot check.</p>
+<p><strong>Judge agreement is not judge accuracy.</strong> High kappa between a model judge and a human means they agree, including where they are both wrong in the same direction. It is a necessary condition for trusting a judge, not a sufficient one.</p>
+<p><strong>The package does not run evaluations.</strong> It takes scores that already exist. Anything about prompting, sampling temperature, or harness configuration is out of scope and upstream of everything here.</p>
+</div>
+<div class="section level2">
 <h2 id="working-with-other-tools">Working with other tools<a class="anchor" aria-label="anchor" href="#working-with-other-tools"></a>
 </h2>
 <p><code>evaluatellm</code> consumes scores, so it sits downstream of whatever produced them. The <a href="https://vitals.tidyverse.org/" class="external-link">vitals</a> package runs evaluations in R and its logs pass straight into <code><a href="reference/as_eval.html">as_eval()</a></code>; scores exported from Inspect, lm-eval-harness or a bespoke pipeline work the same way.</p>
