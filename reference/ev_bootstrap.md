@@ -26,8 +26,8 @@ ev_bootstrap(
 
 - data:
 
-  An `evalkit_eval` object from
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md),
+  An `evaluatellm_eval` object from
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md),
   a data frame, or a bare numeric or logical vector of scores.
 
 - model:
@@ -58,27 +58,27 @@ ev_bootstrap(
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_bootstrap` object with elements `estimate`, `se`,
+An `evaluatellm_bootstrap` object with elements `estimate`, `se`,
 `conf_low`, `conf_high`, `replicates`, `R`, `type`, and `level`.
 
 ## Details
 
 Resampling clusters rather than items preserves the dependence
 structure, so the resulting interval carries the same protection as
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md).
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md).
 
 ## See also
 
 Other single model:
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md),
-[`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md),
-[`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md),
-[`ev_score()`](https://charlescoverdale.github.io/evalkit/reference/ev_score.md)
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md),
+[`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md),
+[`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md),
+[`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md)
 
 ## Examples
 

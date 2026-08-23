@@ -14,9 +14,9 @@ ev_cluster(data, model = NULL, level = 0.95, ...)
 
 - data:
 
-  An `evalkit_eval` object carrying a cluster column, or a data frame
-  passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  An `evaluatellm_eval` object carrying a cluster column, or a data
+  frame passed to
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - model:
@@ -30,13 +30,13 @@ ev_cluster(data, model = NULL, level = 0.95, ...)
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_cluster` object with elements `estimate`, `se`, `se_naive`,
-`conf_low`, `conf_high`, `design_effect`, `icc`, `n_items`,
+An `evaluatellm_cluster` object with elements `estimate`, `se`,
+`se_naive`, `conf_low`, `conf_high`, `design_effect`, `icc`, `n_items`,
 `n_clusters`, `mean_cluster_size`, `df`, and `level`.
 
 ## Details
@@ -58,10 +58,10 @@ appropriately cautious when clusters are few.
 ## See also
 
 Other single model:
-[`ev_bootstrap()`](https://charlescoverdale.github.io/evalkit/reference/ev_bootstrap.md),
-[`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md),
-[`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md),
-[`ev_score()`](https://charlescoverdale.github.io/evalkit/reference/ev_score.md)
+[`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md),
+[`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md),
+[`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md),
+[`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md)
 
 ## Examples
 

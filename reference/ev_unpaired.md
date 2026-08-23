@@ -13,9 +13,9 @@ ev_unpaired(data, model_a = NULL, model_b = NULL, level = 0.95, ...)
 
 - data:
 
-  An `evalkit_eval` object holding both models, or a data frame passed
-  to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  An `evaluatellm_eval` object holding both models, or a data frame
+  passed to
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - model_a:
@@ -34,19 +34,19 @@ ev_unpaired(data, model_a = NULL, model_b = NULL, level = 0.95, ...)
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_unpaired` object with elements `estimate`, `se`, `conf_low`,
-`conf_high`, `statistic`, `p_value`, `mean_a`, `mean_b`, `n_a`, `n_b`,
-`df`, and `level`.
+An `evaluatellm_unpaired` object with elements `estimate`, `se`,
+`conf_low`, `conf_high`, `statistic`, `p_value`, `mean_a`, `mean_b`,
+`n_a`, `n_b`, `df`, and `level`.
 
 ## Details
 
 Prefer
-[`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md)
+[`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md)
 whenever both models were run on the same questions. This function
 exists for the case where they were not, for instance when comparing a
 published score against your own run, and it will be substantially less
@@ -55,9 +55,9 @@ powerful because item difficulty is left in the error term.
 ## See also
 
 Other comparison:
-[`ev_multi()`](https://charlescoverdale.github.io/evalkit/reference/ev_multi.md),
-[`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md),
-[`ev_variance_reduction()`](https://charlescoverdale.github.io/evalkit/reference/ev_variance_reduction.md)
+[`ev_multi()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_multi.md),
+[`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md),
+[`ev_variance_reduction()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_variance_reduction.md)
 
 ## Examples
 

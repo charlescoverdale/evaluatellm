@@ -2,11 +2,11 @@
 
 Draws the results as a horizontal interval plot, the format this package
 exists to make routine. Accepts the same input as
-[`ev_table()`](https://charlescoverdale.github.io/evalkit/reference/ev_table.md),
+[`ev_table()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_table.md),
 and also plots
-[`ev_rank()`](https://charlescoverdale.github.io/evalkit/reference/ev_rank.md)
+[`ev_rank()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_rank.md)
 and
-[`ev_multi()`](https://charlescoverdale.github.io/evalkit/reference/ev_multi.md)
+[`ev_multi()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_multi.md)
 objects directly.
 
 ## Usage
@@ -19,8 +19,8 @@ ev_plot(x, ..., reference = NULL, xlab = NULL, main = NULL, col = "#1b365d")
 
 - x:
 
-  An `evalkit` result, a list of them, or a data frame from
-  [`ev_table()`](https://charlescoverdale.github.io/evalkit/reference/ev_table.md).
+  An `evaluatellm` result, a list of them, or a data frame from
+  [`ev_table()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_table.md).
 
 - ...:
 
@@ -47,7 +47,7 @@ The plotted data frame, invisibly.
 ## See also
 
 Other reporting:
-[`ev_table()`](https://charlescoverdale.github.io/evalkit/reference/ev_table.md)
+[`ev_table()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_table.md)
 
 ## Examples
 

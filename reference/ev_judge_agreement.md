@@ -29,7 +29,7 @@ ev_judge_agreement(judge, gold, level = 0.95)
 
 ## Value
 
-An `evalkit_agreement` object. Always carries `n`, `type`, `bias`,
+An `evaluatellm_agreement` object. Always carries `n`, `type`, `bias`,
 `bias_conf_low`, `bias_conf_high`, `bias_p_value`, `correlation`,
 `mean_judge`, and `mean_gold`. Binary and categorical scores add
 `accuracy`, `accuracy_conf_low`, `accuracy_conf_high`, `kappa`,
@@ -48,7 +48,7 @@ items while bias does not. For binary scores the McNemar test asks
 whether the judge's disagreements run in one direction; a significant
 result means the judge's mean score is wrong, not merely noisy, and
 every evaluation graded by it inherits that error. The fix is
-[`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md),
+[`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md),
 not a better prompt.
 
 The measurement type is detected from the data: binary when scores take
@@ -57,8 +57,8 @@ two values, categorical when they take a few, continuous otherwise.
 ## See also
 
 Other judge:
-[`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md),
-[`ev_judge_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_power.md)
+[`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md),
+[`ev_judge_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_power.md)
 
 ## Examples
 

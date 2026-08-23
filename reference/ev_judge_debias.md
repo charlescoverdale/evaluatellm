@@ -35,8 +35,8 @@ ev_judge_debias(judge, gold, lambda = NULL, level = 0.95)
 
 ## Value
 
-An `evalkit_debias` object with elements `estimate`, `se`, `conf_low`,
-`conf_high`, `lambda`, `estimate_classical`, `se_classical`,
+An `evaluatellm_debias` object with elements `estimate`, `se`,
+`conf_low`, `conf_high`, `lambda`, `estimate_classical`, `se_classical`,
 `estimate_judge`, `judge_bias`, `effective_n`, `precision_gain`,
 `n_labelled`, `n_unlabelled`, `correlation`, and `level`.
 
@@ -78,8 +78,8 @@ Efficient Prediction-Powered Inference.
 ## See also
 
 Other judge:
-[`ev_judge_agreement()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_agreement.md),
-[`ev_judge_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_power.md)
+[`ev_judge_agreement()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_agreement.md),
+[`ev_judge_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_power.md)
 
 ## Examples
 

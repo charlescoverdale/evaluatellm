@@ -21,9 +21,9 @@ ev_resample(
 
 - data:
 
-  An `evalkit_eval` object with several rows per item and model, or a
-  data frame passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  An `evaluatellm_eval` object with several rows per item and model, or
+  a data frame passed to
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - model:
@@ -42,14 +42,14 @@ ev_resample(
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_resample` object with elements `estimate`, `se`, `se_floor`,
-`var_between`, `var_within`, `share_within`, `n_items`, `k_mean`,
-`projection`, `df`, and `level`.
+An `evaluatellm_resample` object with elements `estimate`, `se`,
+`se_floor`, `var_between`, `var_within`, `share_within`, `n_items`,
+`k_mean`, `projection`, `df`, and `level`.
 
 ## Details
 
@@ -76,10 +76,10 @@ Language Model Evaluations.
 ## See also
 
 Other single model:
-[`ev_bootstrap()`](https://charlescoverdale.github.io/evalkit/reference/ev_bootstrap.md),
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md),
-[`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md),
-[`ev_score()`](https://charlescoverdale.github.io/evalkit/reference/ev_score.md)
+[`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md),
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md),
+[`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md),
+[`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md)
 
 ## Examples
 

@@ -1,7 +1,7 @@
 # Smallest Difference an Evaluation Can Detect
 
 The mirror of
-[`ev_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_power.md).
+[`ev_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_power.md).
 Given the number of questions available, returns the smallest true
 difference the evaluation has a decent chance of detecting.
 
@@ -35,7 +35,7 @@ ev_mde(
 - pilot:
 
   A result from
-  [`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md)
+  [`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md)
   to take `sd_diff` from.
 
 - p_a, p_b:
@@ -58,7 +58,7 @@ ev_mde(
 - icc:
 
   Intra-cluster correlation, from
-  [`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md).
+  [`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md).
   Default `0`.
 
 - cluster_size:
@@ -67,8 +67,8 @@ ev_mde(
 
 ## Value
 
-An `evalkit_mde` object with elements `mde`, `n_items`, `n_effective`,
-`sd_diff`, `power`, `alpha`, `design_effect`, and `icc`.
+An `evaluatellm_mde` object with elements `mde`, `n_items`,
+`n_effective`, `sd_diff`, `power`, `alpha`, `design_effect`, and `icc`.
 
 ## Details
 
@@ -82,7 +82,7 @@ tell".
 ## See also
 
 Other planning:
-[`ev_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_power.md)
+[`ev_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_power.md)
 
 ## Examples
 

@@ -3,10 +3,10 @@
 Estimates the intra-cluster correlation of evaluation scores using the
 one-way random effects analysis of variance estimator. This is the
 quantity
-[`ev_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_power.md)
+[`ev_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_power.md)
 needs in order to size a clustered evaluation, and the quantity that
 determines how much
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md)
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md)
 will widen an interval.
 
 ## Usage
@@ -19,9 +19,9 @@ ev_icc(data, model = NULL, ...)
 
 - data:
 
-  An `evalkit_eval` object carrying a cluster column, or a data frame
-  passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  An `evaluatellm_eval` object carrying a cluster column, or a data
+  frame passed to
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - model:
@@ -31,7 +31,7 @@ ev_icc(data, model = NULL, ...)
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
@@ -49,10 +49,10 @@ as zero and a note is attached.
 ## See also
 
 Other single model:
-[`ev_bootstrap()`](https://charlescoverdale.github.io/evalkit/reference/ev_bootstrap.md),
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md),
-[`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md),
-[`ev_score()`](https://charlescoverdale.github.io/evalkit/reference/ev_score.md)
+[`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md),
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md),
+[`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md),
+[`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md)
 
 ## Examples
 

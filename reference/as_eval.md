@@ -51,12 +51,12 @@ as_eval(
 
   Column identifying repeated draws for the same item and model. Only
   needed if the same item and model appear on several rows and you want
-  [`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md)
+  [`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md)
   to decompose the variance.
 
 ## Value
 
-An `evalkit_eval` object: a data frame with columns `item`, `model`,
+An `evaluatellm_eval` object: a data frame with columns `item`, `model`,
 `score`, and, when supplied, `cluster` and `sample`.
 
 ## Details
@@ -80,7 +80,7 @@ Language Model Evaluations.
 # A bare vector of pass or fail results
 set.seed(1)
 as_eval(rbinom(200, 1, 0.7))
-#> <evalkit_eval>
+#> <evaluatellm_eval>
 #>   rows    200
 #>   items   200
 #>   models  1 (model)
@@ -93,7 +93,7 @@ d <- data.frame(
   correct = rbinom(200, 1, 0.6)
 )
 as_eval(d, score = correct, item = q, model = m, cluster = passage)
-#> <evalkit_eval>
+#> <evaluatellm_eval>
 #>   rows    200
 #>   items   100
 #>   models  2 (a, b)

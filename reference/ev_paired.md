@@ -22,9 +22,9 @@ ev_paired(
 
 - data:
 
-  An `evalkit_eval` object holding both models, or a data frame passed
-  to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  An `evaluatellm_eval` object holding both models, or a data frame
+  passed to
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - model_a:
@@ -48,12 +48,12 @@ ev_paired(
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_paired` object with elements `estimate`, `se`,
+An `evaluatellm_paired` object with elements `estimate`, `se`,
 `se_unpaired`, `conf_low`, `conf_high`, `statistic`, `p_value`,
 `correlation`, `variance_reduction`, `mean_a`, `mean_b`, `n_items`,
 `df`, and `level`.
@@ -82,9 +82,9 @@ Language Model Evaluations.
 ## See also
 
 Other comparison:
-[`ev_multi()`](https://charlescoverdale.github.io/evalkit/reference/ev_multi.md),
-[`ev_unpaired()`](https://charlescoverdale.github.io/evalkit/reference/ev_unpaired.md),
-[`ev_variance_reduction()`](https://charlescoverdale.github.io/evalkit/reference/ev_variance_reduction.md)
+[`ev_multi()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_multi.md),
+[`ev_unpaired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_unpaired.md),
+[`ev_variance_reduction()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_variance_reduction.md)
 
 ## Examples
 

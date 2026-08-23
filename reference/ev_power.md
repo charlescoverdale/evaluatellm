@@ -34,7 +34,7 @@ ev_power(
 - pilot:
 
   A result from
-  [`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md)
+  [`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md)
   to take `sd_diff` from.
 
 - p_a, p_b:
@@ -57,7 +57,7 @@ ev_power(
 - icc:
 
   Intra-cluster correlation, from
-  [`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md).
+  [`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md).
   Default `0`.
 
 - cluster_size:
@@ -66,7 +66,7 @@ ev_power(
 
 ## Value
 
-An `evalkit_power` object with elements `n_items`, `n_clusters`,
+An `evaluatellm_power` object with elements `n_items`, `n_clusters`,
 `delta`, `sd_diff`, `power`, `alpha`, `design_effect`, and `icc`.
 
 ## Details
@@ -81,7 +81,7 @@ Getting `sd_diff` right is the whole exercise. It is the standard
 deviation of the per-question difference, not of the scores, and it is
 much smaller than people expect because the two models face the same
 questions. The reliable way to get it is a pilot run passed through
-[`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md)
+[`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md)
 and handed back here as `pilot`. Failing that, supply `p_a`, `p_b` and a
 correlation for binary scoring: a correlation of 0.7 is typical for
 models of similar capability.
@@ -89,7 +89,7 @@ models of similar capability.
 ## See also
 
 Other planning:
-[`ev_mde()`](https://charlescoverdale.github.io/evalkit/reference/ev_mde.md)
+[`ev_mde()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_mde.md)
 
 ## Examples
 

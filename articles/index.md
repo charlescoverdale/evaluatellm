@@ -3,4 +3,4 @@
 ### All vignettes
 
 - [Getting started with
-  evalkit](https://charlescoverdale.github.io/evalkit/articles/evalkit.md):
+  evaluatellm](https://charlescoverdale.github.io/evaluatellm/articles/evaluatellm.md):

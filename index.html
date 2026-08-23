@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Statistical Inference for Language Model Evaluations • evalkit</title>
+<title>Statistical Inference for Language Model Evaluations • evaluatellm</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">evalkit</a>
+    <a class="navbar-brand me-2" href="index.html">evaluatellm</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
@@ -31,7 +31,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="articles/evalkit.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="articles/evaluatellm.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
@@ -39,7 +39,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/evalkit/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/evaluatellm/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -48,26 +48,26 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="evalkit">evalkit<a class="anchor" aria-label="anchor" href="#evalkit"></a>
+<div class="page-header"><h1 id="evaluatellm">evaluatellm<a class="anchor" aria-label="anchor" href="#evaluatellm"></a>
 </h1></div>
 <!-- badges: start -->
 <!-- Re-add on CRAN acceptance; both 404 until the package page exists, and
      README.md ships in the tarball so CRAN's incoming URL check would flag it:
-[![CRAN status](https://www.r-pkg.org/badges/version/evalkit)](https://CRAN.R-project.org/package=evalkit)
-[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/evalkit)](https://CRAN.R-project.org/package=evalkit)
+[![CRAN status](https://www.r-pkg.org/badges/version/evaluatellm)](https://CRAN.R-project.org/package=evaluatellm)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/evaluatellm)](https://CRAN.R-project.org/package=evaluatellm)
 -->
 
-<p>Language model evaluations are experiments, and experiments have standard errors. Almost no published evaluation reports one. <code>evalkit</code> supplies the inference: standard errors that respect how questions were sampled, model comparisons that use the pairing you already have, power calculations that tell you whether an evaluation can answer its question before you run it, and prediction-powered estimators that let a small set of human labels correct a large set of model-judge scores.</p>
+<p>Language model evaluations are experiments, and experiments have standard errors. Almost no published evaluation reports one. <code>evaluatellm</code> supplies the inference: standard errors that respect how questions were sampled, model comparisons that use the pairing you already have, power calculations that tell you whether an evaluation can answer its question before you run it, and prediction-powered estimators that let a small set of human labels correct a large set of model-judge scores.</p>
 <p>It is a pure computation package. It runs no evaluations and calls no APIs: give it scores from any harness and it gives you the statistics.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"evalkit"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"evaluatellm"</span><span class="op">)</span></span></code></pre></div>
 <p>Development version:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"charlescoverdale/evalkit"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"charlescoverdale/evaluatellm"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="the-problem-in-one-number">The problem in one number<a class="anchor" aria-label="anchor" href="#the-problem-in-one-number"></a>
@@ -103,7 +103,7 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://charlescoverdale.github.io/evalkit/">evalkit</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://charlescoverdale.github.io/evaluatellm/">evaluatellm</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/as_eval.html">as_eval</a></span><span class="op">(</span><span class="va">results</span>, score <span class="op">=</span> <span class="va">correct</span>, item <span class="op">=</span> <span class="va">q</span>, model <span class="op">=</span> <span class="va">model</span>, cluster <span class="op">=</span> <span class="va">passage</span><span class="op">)</span></span>
 <span></span>
@@ -251,7 +251,7 @@
 <div class="section level2">
 <h2 id="working-with-other-tools">Working with other tools<a class="anchor" aria-label="anchor" href="#working-with-other-tools"></a>
 </h2>
-<p><code>evalkit</code> consumes scores, so it sits downstream of whatever produced them. The <a href="https://vitals.tidyverse.org/" class="external-link">vitals</a> package runs evaluations in R and its logs pass straight into <code><a href="reference/as_eval.html">as_eval()</a></code>; scores exported from Inspect, lm-eval-harness or a bespoke pipeline work the same way.</p>
+<p><code>evaluatellm</code> consumes scores, so it sits downstream of whatever produced them. The <a href="https://vitals.tidyverse.org/" class="external-link">vitals</a> package runs evaluations in R and its logs pass straight into <code><a href="reference/as_eval.html">as_eval()</a></code>; scores exported from Inspect, lm-eval-harness or a bespoke pipeline work the same way.</p>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -271,8 +271,8 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/charlescoverdale/evalkit/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/charlescoverdale/evalkit/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/charlescoverdale/evaluatellm/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/charlescoverdale/evaluatellm/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -288,7 +288,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing evalkit</a></li>
+<li><a href="authors.html#citation">Citing evaluatellm</a></li>
 </ul>
 </div>
 
@@ -303,7 +303,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a></li>
-<li><a href="https://charlescoverdale.github.io/evalkit/"><img src="https://img.shields.io/badge/docs-pkgdown-blue.svg" alt="Docs"></a></li>
+<li><a href="https://charlescoverdale.github.io/evaluatellm/"><img src="https://img.shields.io/badge/docs-pkgdown-blue.svg" alt="Docs"></a></li>
 </ul>
 </div>
 

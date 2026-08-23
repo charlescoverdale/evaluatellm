@@ -30,7 +30,7 @@ ev_judge_power(
 - correlation:
 
   Correlation between judge and human scores, from a pilot. A fitted
-  [`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md)
+  [`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md)
   result may be passed instead via `pilot`.
 
 - target_se:
@@ -55,7 +55,7 @@ ev_judge_power(
 - pilot:
 
   Optional
-  [`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md)
+  [`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md)
   result to take `correlation`, `sd_gold` and `sd_judge` from.
 
 - power, alpha:
@@ -64,7 +64,7 @@ ev_judge_power(
 
 ## Value
 
-An `evalkit_judge_power` object with elements `n_labels`,
+An `evaluatellm_judge_power` object with elements `n_labels`,
 `n_labels_without_judge`, `saving`, `achieved_se`, `target_se`,
 `correlation`, `lambda`, and `n_total`.
 
@@ -83,8 +83,8 @@ barely worth the pipeline.
 ## See also
 
 Other judge:
-[`ev_judge_agreement()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_agreement.md),
-[`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md)
+[`ev_judge_agreement()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_agreement.md),
+[`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md)
 
 ## Examples
 

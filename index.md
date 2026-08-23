@@ -1,12 +1,13 @@
-# evalkit
+# evaluatellm
 
 Language model evaluations are experiments, and experiments have
-standard errors. Almost no published evaluation reports one. `evalkit`
-supplies the inference: standard errors that respect how questions were
-sampled, model comparisons that use the pairing you already have, power
-calculations that tell you whether an evaluation can answer its question
-before you run it, and prediction-powered estimators that let a small
-set of human labels correct a large set of model-judge scores.
+standard errors. Almost no published evaluation reports one.
+`evaluatellm` supplies the inference: standard errors that respect how
+questions were sampled, model comparisons that use the pairing you
+already have, power calculations that tell you whether an evaluation can
+answer its question before you run it, and prediction-powered estimators
+that let a small set of human labels correct a large set of model-judge
+scores.
 
 It is a pure computation package. It runs no evaluations and calls no
 APIs: give it scores from any harness and it gives you the statistics.
@@ -15,7 +16,7 @@ APIs: give it scores from any harness and it gives you the statistics.
 
 ``` r
 
-install.packages("evalkit")
+install.packages("evaluatellm")
 ```
 
 Development version:
@@ -23,7 +24,7 @@ Development version:
 ``` r
 
 # install.packages("pak")
-pak::pak("charlescoverdale/evalkit")
+pak::pak("charlescoverdale/evaluatellm")
 ```
 
 ## The problem in one number
@@ -46,7 +47,7 @@ the answer.
 
 ``` r
 
-library(evalkit)
+library(evaluatellm)
 
 e <- as_eval(results, score = correct, item = q, model = model, cluster = passage)
 
@@ -97,7 +98,7 @@ ev_mde(n_items = 500, p_a = 0.72, p_b = 0.70, correlation = 0.7,
 Five hundred clustered questions cannot detect a two point gain.
 Reporting a null result from that evaluation says nothing about the
 models. Report the minimum detectable effect alongside it, or run
-[`ev_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_power.md)
+[`ev_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_power.md)
 first and buy enough questions.
 
 ## Model judges
@@ -112,7 +113,7 @@ ev_judge_debias(judge, gold)         # prediction-powered estimate
 ev_judge_power(n_total = 20000, correlation = 0.8, target_se = 0.01)
 ```
 
-[`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md)
+[`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md)
 takes judge scores for every item and human labels for a random subset,
 marked `NA` elsewhere. It returns an estimate of what a full human
 evaluation would have found, with valid intervals, and reports how many
@@ -127,52 +128,52 @@ labels alone, so there is no downside to including a weak judge.
 
 |  |  |
 |----|----|
-| [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md) | Build the evaluation object |
-| [`ev_score()`](https://charlescoverdale.github.io/evalkit/reference/ev_score.md) | Mean score with a standard error and interval |
-| [`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md), [`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md) | Cluster-robust inference, design effect, intra-cluster correlation |
-| [`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md) | Split between-item variance from response sampling noise |
-| [`ev_bootstrap()`](https://charlescoverdale.github.io/evalkit/reference/ev_bootstrap.md) | Cluster bootstrap for statistics that are not means |
-| [`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md), [`ev_unpaired()`](https://charlescoverdale.github.io/evalkit/reference/ev_unpaired.md) | Compare two models |
-| [`ev_variance_reduction()`](https://charlescoverdale.github.io/evalkit/reference/ev_variance_reduction.md) | Control variate from a reference model |
-| [`ev_multi()`](https://charlescoverdale.github.io/evalkit/reference/ev_multi.md) | Multiplicity adjustment, pooling and heterogeneity across a suite |
-| [`ev_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_power.md), [`ev_mde()`](https://charlescoverdale.github.io/evalkit/reference/ev_mde.md) | Size an evaluation, or find what it can detect |
-| [`ev_judge_agreement()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_agreement.md) | Judge against a human gold standard |
-| [`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md) | Prediction-powered inference for judge-scored evaluations |
-| [`ev_judge_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_power.md) | Size the human labelling budget |
-| [`ev_rank()`](https://charlescoverdale.github.io/evalkit/reference/ev_rank.md), [`ev_elo()`](https://charlescoverdale.github.io/evalkit/reference/ev_elo.md) | Leaderboards with rank intervals and Bradley-Terry ratings |
-| [`ev_table()`](https://charlescoverdale.github.io/evalkit/reference/ev_table.md), [`ev_plot()`](https://charlescoverdale.github.io/evalkit/reference/ev_plot.md) | Collect and draw results |
+| [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md) | Build the evaluation object |
+| [`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md) | Mean score with a standard error and interval |
+| [`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md), [`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md) | Cluster-robust inference, design effect, intra-cluster correlation |
+| [`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md) | Split between-item variance from response sampling noise |
+| [`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md) | Cluster bootstrap for statistics that are not means |
+| [`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md), [`ev_unpaired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_unpaired.md) | Compare two models |
+| [`ev_variance_reduction()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_variance_reduction.md) | Control variate from a reference model |
+| [`ev_multi()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_multi.md) | Multiplicity adjustment, pooling and heterogeneity across a suite |
+| [`ev_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_power.md), [`ev_mde()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_mde.md) | Size an evaluation, or find what it can detect |
+| [`ev_judge_agreement()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_agreement.md) | Judge against a human gold standard |
+| [`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md) | Prediction-powered inference for judge-scored evaluations |
+| [`ev_judge_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_power.md) | Size the human labelling budget |
+| [`ev_rank()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_rank.md), [`ev_elo()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_elo.md) | Leaderboards with rank intervals and Bradley-Terry ratings |
+| [`ev_table()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_table.md), [`ev_plot()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_plot.md) | Collect and draw results |
 
 ## Validation
 
 Every analytic result is checked against an independent implementation
 or a simulation in the test suite:
 
-- [`ev_score()`](https://charlescoverdale.github.io/evalkit/reference/ev_score.md),
-  [`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md)
+- [`ev_score()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_score.md),
+  [`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md)
   and
-  [`ev_unpaired()`](https://charlescoverdale.github.io/evalkit/reference/ev_unpaired.md)
+  [`ev_unpaired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_unpaired.md)
   reproduce [`stats::t.test()`](https://rdrr.io/r/stats/t.test.html) to
   machine precision, including Welch degrees of freedom.
-- [`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md)
+- [`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md)
   reproduces `sandwich::vcovCL(type = "HC0", cadjust = TRUE)` exactly.
 - Cohen’s kappa uses the Fleiss, Cohen and Everitt (1969) asymptotic
   variance, checked against a bootstrap.
-- [`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md)
+- [`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md)
   recovers a known between and within variance decomposition.
-- [`ev_judge_debias()`](https://charlescoverdale.github.io/evalkit/reference/ev_judge_debias.md)
+- [`ev_judge_debias()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_judge_debias.md)
   is checked over 300 replications for unbiasedness, standard error
   accuracy and interval coverage.
-- [`ev_power()`](https://charlescoverdale.github.io/evalkit/reference/ev_power.md)
+- [`ev_power()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_power.md)
   agrees with
   [`stats::power.t.test()`](https://rdrr.io/r/stats/power.t.test.html)
   to within the difference between normal and t quantiles.
 
 ## Working with other tools
 
-`evalkit` consumes scores, so it sits downstream of whatever produced
-them. The [vitals](https://vitals.tidyverse.org/) package runs
+`evaluatellm` consumes scores, so it sits downstream of whatever
+produced them. The [vitals](https://vitals.tidyverse.org/) package runs
 evaluations in R and its logs pass straight into
-[`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md);
+[`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md);
 scores exported from Inspect, lm-eval-harness or a bespoke pipeline work
 the same way.
 

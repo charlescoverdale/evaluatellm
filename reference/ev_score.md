@@ -15,8 +15,8 @@ ev_score(data, model = NULL, level = 0.95, cluster = TRUE, ...)
 
 - data:
 
-  An `evalkit_eval` object from
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md),
+  An `evaluatellm_eval` object from
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md),
   a data frame, or a bare numeric or logical vector of scores.
 
 - model:
@@ -36,14 +36,14 @@ ev_score(data, model = NULL, level = 0.95, cluster = TRUE, ...)
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_score` object with elements `estimate`, `se`, `conf_low`,
-`conf_high`, `n_items`, `n_responses`, `df`, `level`, `clustered`, and,
-when clustered, `n_clusters` and `design_effect`.
+An `evaluatellm_score` object with elements `estimate`, `se`,
+`conf_low`, `conf_high`, `n_items`, `n_responses`, `df`, `level`,
+`clustered`, and, when clustered, `n_clusters` and `design_effect`.
 
 ## Details
 
@@ -52,7 +52,7 @@ means: `sd(score) / sqrt(n)`, where `n` counts items, not responses.
 When `cluster` is present in the data the calculation switches to a
 cluster-robust standard error, since questions sharing a passage or a
 source document are not independent draws. See
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md)
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md)
 for the detail.
 
 Confidence intervals use the t distribution with `n - 1` degrees of
@@ -69,10 +69,10 @@ Language Model Evaluations.
 ## See also
 
 Other single model:
-[`ev_bootstrap()`](https://charlescoverdale.github.io/evalkit/reference/ev_bootstrap.md),
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md),
-[`ev_icc()`](https://charlescoverdale.github.io/evalkit/reference/ev_icc.md),
-[`ev_resample()`](https://charlescoverdale.github.io/evalkit/reference/ev_resample.md)
+[`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md),
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md),
+[`ev_icc()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_icc.md),
+[`ev_resample()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_resample.md)
 
 ## Examples
 

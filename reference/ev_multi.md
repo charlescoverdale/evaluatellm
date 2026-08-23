@@ -16,9 +16,9 @@ ev_multi(results, method = "holm", level = 0.95)
 - results:
 
   A list of objects from
-  [`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md)
+  [`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md)
   or
-  [`ev_unpaired()`](https://charlescoverdale.github.io/evalkit/reference/ev_unpaired.md),
+  [`ev_unpaired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_unpaired.md),
   optionally named by task. Alternatively a data frame with columns
   `estimate` and `se`, and optionally `task` and `df`.
 
@@ -36,7 +36,7 @@ ev_multi(results, method = "holm", level = 0.95)
 
 ## Value
 
-An `evalkit_multi` object with elements `tasks` (a data frame),
+An `evaluatellm_multi` object with elements `tasks` (a data frame),
 `pooled`, `pooled_se`, `pooled_conf_low`, `pooled_conf_high`,
 `pooled_p_value`, `q_statistic`, `q_p_value`, `i_squared`, `n_tasks`,
 `n_significant`, `method`, and `level`.
@@ -61,9 +61,9 @@ hiding something, so read the per-task rows instead.
 ## See also
 
 Other comparison:
-[`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md),
-[`ev_unpaired()`](https://charlescoverdale.github.io/evalkit/reference/ev_unpaired.md),
-[`ev_variance_reduction()`](https://charlescoverdale.github.io/evalkit/reference/ev_variance_reduction.md)
+[`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md),
+[`ev_unpaired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_unpaired.md),
+[`ev_variance_reduction()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_variance_reduction.md)
 
 ## Examples
 

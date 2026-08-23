@@ -22,9 +22,9 @@ ev_variance_reduction(
 
 - data:
 
-  An `evalkit_eval` object holding both models, or a data frame passed
-  to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  An `evaluatellm_eval` object holding both models, or a data frame
+  passed to
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - model:
@@ -51,12 +51,12 @@ ev_variance_reduction(
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_vr` object with elements `estimate`, `se`, `conf_low`,
+An `evaluatellm_vr` object with elements `estimate`, `se`, `conf_low`,
 `conf_high`, `estimate_raw`, `se_raw`, `theta`, `correlation`,
 `variance_reduction`, `effective_n`, `n_items`, `df`, and `level`.
 
@@ -85,9 +85,9 @@ would make the correction identically zero.
 ## See also
 
 Other comparison:
-[`ev_multi()`](https://charlescoverdale.github.io/evalkit/reference/ev_multi.md),
-[`ev_paired()`](https://charlescoverdale.github.io/evalkit/reference/ev_paired.md),
-[`ev_unpaired()`](https://charlescoverdale.github.io/evalkit/reference/ev_unpaired.md)
+[`ev_multi()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_multi.md),
+[`ev_paired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_paired.md),
+[`ev_unpaired()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_unpaired.md)
 
 ## Examples
 

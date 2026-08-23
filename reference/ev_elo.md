@@ -50,8 +50,8 @@ ev_elo(
 
 ## Value
 
-An `evalkit_elo` object with element `models`, a data frame ordered best
-first with columns `model`, `strength` (centred), `se`, `elo`,
+An `evaluatellm_elo` object with element `models`, a data frame ordered
+best first with columns `model`, `strength` (centred), `se`, `elo`,
 `elo_low`, `elo_high`, and `n_games`.
 
 ## Details
@@ -79,7 +79,7 @@ Block Designs: I. The Method of Paired Comparisons. *Biometrika*.
 ## See also
 
 Other leaderboard:
-[`ev_rank()`](https://charlescoverdale.github.io/evalkit/reference/ev_rank.md)
+[`ev_rank()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_rank.md)
 
 ## Examples
 

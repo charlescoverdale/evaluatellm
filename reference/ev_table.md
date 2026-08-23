@@ -1,7 +1,7 @@
 # Collect Results into a Table
 
-Flattens one or more `evalkit` results into a plain data frame with a
-common set of columns, ready for a paper table or a plot.
+Flattens one or more `evaluatellm` results into a plain data frame with
+a common set of columns, ready for a paper table or a plot.
 
 ## Usage
 
@@ -13,8 +13,8 @@ ev_table(...)
 
 - ...:
 
-  One or more `evalkit` result objects, or a single list of them. Names,
-  where given, become the `label` column.
+  One or more `evaluatellm` result objects, or a single list of them.
+  Names, where given, become the `label` column.
 
 ## Value
 
@@ -24,7 +24,7 @@ A data frame with columns `label`, `term`, `estimate`, `se`, `conf_low`,
 ## See also
 
 Other reporting:
-[`ev_plot()`](https://charlescoverdale.github.io/evalkit/reference/ev_plot.md)
+[`ev_plot()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_plot.md)
 
 ## Examples
 

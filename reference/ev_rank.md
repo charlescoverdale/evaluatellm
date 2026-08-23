@@ -14,9 +14,9 @@ ev_rank(data, R = 2000, level = 0.95, higher_better = TRUE, seed = NULL, ...)
 
 - data:
 
-  An `evalkit_eval` object holding several models, or a data frame
+  An `evaluatellm_eval` object holding several models, or a data frame
   passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   along with `...`.
 
 - R:
@@ -38,12 +38,12 @@ ev_rank(data, R = 2000, level = 0.95, higher_better = TRUE, seed = NULL, ...)
 - ...:
 
   Passed to
-  [`as_eval()`](https://charlescoverdale.github.io/evalkit/reference/as_eval.md)
+  [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md)
   when `data` is a plain data frame.
 
 ## Value
 
-An `evalkit_rank` object with element `models`, a data frame ordered
+An `evaluatellm_rank` object with element `models`, a data frame ordered
 best first with columns `model`, `estimate`, `se`, `conf_low`,
 `conf_high`, `rank`, `rank_low`, `rank_high`, and `p_best`.
 
@@ -58,13 +58,13 @@ deserves.
 
 Clusters are resampled whole where a cluster column exists, matching the
 dependence structure that
-[`ev_cluster()`](https://charlescoverdale.github.io/evalkit/reference/ev_cluster.md)
+[`ev_cluster()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_cluster.md)
 handles analytically.
 
 ## See also
 
 Other leaderboard:
-[`ev_elo()`](https://charlescoverdale.github.io/evalkit/reference/ev_elo.md)
+[`ev_elo()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_elo.md)
 
 ## Examples
 
