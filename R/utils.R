@@ -68,3 +68,83 @@ p_note <- function(p) {
 new_ev_result <- function(x, class) {
   structure(x, class = c(class, "ev_result"))
 }
+
+# Set the RNG seed for the duration of the calling function only, restoring
+# the user's .Random.seed on exit. A package should not leave the global
+# random stream altered as a side effect of being called: a user who passes
+# `seed` to make one call reproducible would otherwise find every subsequent
+# random draw in their session silently shifted.
+#
+# Touching globalenv() here is deliberate and is the only way to do this:
+# .Random.seed lives there by definition. This preserves the user's state
+# rather than adding to it, which is the opposite of the pattern CRAN
+# objects to.
+local_seed <- function(seed, frame = parent.frame()) {
+  if (is.null(seed)) {
+    return(invisible(NULL))
+  }
+  if (!is.numeric(seed) || length(seed) != 1L || !is.finite(seed)) {
+    cli_abort("{.arg seed} must be a single finite number or {.code NULL}.")
+  }
+  had_seed <- exists(".Random.seed", envir = globalenv(), inherits = FALSE)
+  restore <- if (had_seed) {
+    old <- get(".Random.seed", envir = globalenv(), inherits = FALSE)
+    substitute(
+      assign(".Random.seed", value, envir = globalenv()),
+      list(value = old)
+    )
+  } else {
+    # No stream existed before the call, so leave none behind.
+    quote(suppressWarnings(rm(".Random.seed", envir = globalenv())))
+  }
+  do.call(on.exit, list(restore, add = TRUE, after = FALSE), envir = frame)
+  set.seed(seed)
+  invisible(NULL)
+}
+
+# Warn when a normal-approximation interval has degenerated.
+#
+# Two cases bite in practice on evaluation data. A slice where every item
+# passes gives a zero standard error, so the Wald interval collapses to a
+# point and appears to claim certainty it does not have. And with very few
+# clusters the t multiplier is large enough to push a proportion's interval
+# outside [0, 1], which is not a possible range for the quantity.
+#
+# Both are known properties of the normal-approximation interval that
+# Miller (2024) uses, not errors, so these are warnings rather than aborts.
+# The user needs to know the number in front of them is not usable.
+warn_degenerate_ci <- function(est, se, lo, hi, score, n_items) {
+  binary <- all(is.finite(score)) && all(score %in% c(0, 1))
+
+  if (is.finite(se) && se == 0) {
+    extra <- if (binary && n_items > 0) {
+      z <- stats::qnorm(0.975)
+      p <- est
+      centre <- (p + z^2 / (2 * n_items)) / (1 + z^2 / n_items)
+      half <- z * sqrt(p * (1 - p) / n_items + z^2 / (4 * n_items^2)) /
+        (1 + z^2 / n_items)
+      paste0("A Wilson interval on the same data gives roughly ",
+             fmt_ci(max(0, centre - half), min(1, centre + half)), ".")
+    } else {
+      "The interval width is not a statement about precision here."
+    }
+    cli::cli_warn(c(
+      "Standard error is zero, so the confidence interval has no width.",
+      "i" = "Every score is identical, which collapses the normal-approximation
+             interval to a point. It does not mean the estimate is certain.",
+      "i" = extra
+    ))
+    return(invisible(NULL))
+  }
+
+  if (binary && (lo < 0 || hi > 1)) {
+    cli::cli_warn(c(
+      "Confidence interval {fmt_ci(lo, hi)} falls outside {.val {c(0, 1)}}.",
+      "i" = "The scores are pass or fail, so the quantity cannot lie outside
+             that range. The normal approximation is unreliable at this sample
+             size.",
+      "i" = "Treat the interval as uninformative rather than clipping it."
+    ))
+  }
+  invisible(NULL)
+}

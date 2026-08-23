@@ -74,6 +74,8 @@ ev_score <- function(data, model = NULL, level = 0.95, cluster = TRUE, ...) {
   }
 
   tcrit <- crit_value(level, df)
+  warn_degenerate_ci(est, se, est - tcrit * se, est + tcrit * se,
+                     il$score, n)
   out <- list(
     estimate      = est,
     se            = se,

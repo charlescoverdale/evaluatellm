@@ -69,6 +69,8 @@ ev_cluster <- function(data, model = NULL, level = 0.95, ...) {
 
   icc <- icc_oneway(il$score, il$cluster)
 
+  warn_degenerate_ci(est, se, est - tcrit * se, est + tcrit * se,
+                     il$score, n)
   out <- list(
     estimate          = est,
     se                = se,

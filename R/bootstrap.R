@@ -37,7 +37,7 @@ ev_bootstrap <- function(data, model = NULL, statistic = mean, R = 2000,
     cli_abort("{.arg R} must be a single number of at least 2.")
   }
   R <- as.integer(R)
-  if (!is.null(seed)) set.seed(seed)
+  local_seed(seed)
 
   d <- one_model(x, model)
   il <- item_level(d)

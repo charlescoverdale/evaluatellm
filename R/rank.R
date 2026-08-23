@@ -44,7 +44,7 @@ ev_rank <- function(data, R = 2000, level = 0.95, higher_better = TRUE,
     cli_abort("{.arg R} must be a single number of at least 2.")
   }
   R <- as.integer(R)
-  if (!is.null(seed)) set.seed(seed)
+  local_seed(seed)
 
   models <- unique(x$model)
   if (length(models) < 2L) {
