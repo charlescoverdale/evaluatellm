@@ -1,13 +1,11 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes (local)
-0 errors | 0 warnings | 1 note (win-builder, the new-submission note below)
 
 ## Test environments
 
 - macOS Tahoe 26.5 (local, aarch64), R 4.5.2, `--as-cran --run-donttest`
-- win-builder, R 4.6.1 (2026-06-24 ucrt): 1 NOTE
-- win-builder, R-devel: queued at the time of writing
+- win-builder, R-release and R-devel: submitted, results pending
 
 ## Submission notes
 
@@ -24,10 +22,11 @@ preference data.
 All computation is pure. There are no API calls, no network access, and no
 bundled data. Dependencies are cli, graphics, grDevices, stats and utils.
 
-## Note on the win-builder NOTE
+## Expected note
 
-The only note is the expected new-submission note. It flags four words in the
-Description as possibly misspelled. All four are correct:
+A first submission of this package under an earlier name returned one note on
+win-builder, the standard new-submission note, which additionally flagged four
+words in the Description as possibly misspelled. All four are correct:
 
 - `Angelopoulos` is the surname of the first author of both cited
   prediction-powered inference papers.
