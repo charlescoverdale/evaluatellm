@@ -16,7 +16,7 @@
 #' used in Miller (2024) and better behaved on the short evaluations that
 #' appear in practice.
 #'
-#' @param data An `evalkit_eval` object from [as_eval()], a data frame, or a
+#' @param data An `evaluatellm_eval` object from [as_eval()], a data frame, or a
 #'   bare numeric or logical vector of scores.
 #' @param model Which model to score. Optional when the data holds only one.
 #' @param level Confidence level. Default `0.95`.
@@ -25,7 +25,7 @@
 #'   calculation, which is useful only for comparison.
 #' @param ... Passed to [as_eval()] when `data` is a plain data frame.
 #'
-#' @return An `evalkit_score` object with elements `estimate`, `se`, `conf_low`,
+#' @return An `evaluatellm_score` object with elements `estimate`, `se`, `conf_low`,
 #'   `conf_high`, `n_items`, `n_responses`, `df`, `level`, `clustered`, and,
 #'   when clustered, `n_clusters` and `design_effect`.
 #'
@@ -88,11 +88,11 @@ ev_score <- function(data, model = NULL, level = 0.95, cluster = TRUE, ...) {
     clustered     = use_cluster,
     model         = unique(d$model)
   )
-  new_ev_result(out, "evalkit_score")
+  new_ev_result(out, "evaluatellm_score")
 }
 
 #' @export
-print.evalkit_score <- function(x, ...) {
+print.evaluatellm_score <- function(x, ...) {
   cat("\nEvaluation score", if (!is.null(x$model)) paste0(": ", x$model), "\n\n", sep = "")
   cat("  Estimate   ", fmt(x$estimate), "\n", sep = "")
   cat("  Std. error ", fmt(x$se), "\n", sep = "")

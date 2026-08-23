@@ -16,7 +16,7 @@ ignored here.}
 \item{level}{Confidence level. Default \code{0.95}.}
 }
 \value{
-An \code{evalkit_agreement} object. Always carries \code{n}, \code{type}, \code{bias},
+An \code{evaluatellm_agreement} object. Always carries \code{n}, \code{type}, \code{bias},
 \code{bias_conf_low}, \code{bias_conf_high}, \code{bias_p_value}, \code{correlation},
 \code{mean_judge}, and \code{mean_gold}. Binary and categorical scores add
 \code{accuracy}, \code{accuracy_conf_low}, \code{accuracy_conf_high}, \code{kappa}, \code{kappa_se},

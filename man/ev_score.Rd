@@ -7,7 +7,7 @@
 ev_score(data, model = NULL, level = 0.95, cluster = TRUE, ...)
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object from \code{\link[=as_eval]{as_eval()}}, a data frame, or a
+\item{data}{An \code{evaluatellm_eval} object from \code{\link[=as_eval]{as_eval()}}, a data frame, or a
 bare numeric or logical vector of scores.}
 
 \item{model}{Which model to score. Optional when the data holds only one.}
@@ -21,7 +21,7 @@ calculation, which is useful only for comparison.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_score} object with elements \code{estimate}, \code{se}, \code{conf_low},
+An \code{evaluatellm_score} object with elements \code{estimate}, \code{se}, \code{conf_low},
 \code{conf_high}, \code{n_items}, \code{n_responses}, \code{df}, \code{level}, \code{clustered}, and,
 when clustered, \code{n_clusters} and \code{design_effect}.
 }

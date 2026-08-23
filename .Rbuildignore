@@ -7,7 +7,7 @@
 ^docs$
 ^pkgdown$
 ^cran-comments\.md$
-^evalkit_.*\.tar\.gz$
+^evaluatellm_.*\.tar\.gz$
 ^CRAN-SUBMISSION$
 ^paper$
 ^Makefile$

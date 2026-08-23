@@ -16,7 +16,7 @@
 #' @param type Interval type, `"percentile"` (default) or `"basic"`.
 #' @param seed Optional integer seed for reproducibility.
 #'
-#' @return An `evalkit_bootstrap` object with elements `estimate`, `se`,
+#' @return An `evaluatellm_bootstrap` object with elements `estimate`, `se`,
 #'   `conf_low`, `conf_high`, `replicates`, `R`, `type`, and `level`.
 #'
 #' @examples
@@ -84,11 +84,11 @@ ev_bootstrap <- function(data, model = NULL, statistic = mean, R = 2000,
     n_items    = n,
     model      = unique(d$model)
   )
-  new_ev_result(out, "evalkit_bootstrap")
+  new_ev_result(out, "evaluatellm_bootstrap")
 }
 
 #' @export
-print.evalkit_bootstrap <- function(x, ...) {
+print.evaluatellm_bootstrap <- function(x, ...) {
   cat("\nCluster bootstrap", if (!is.null(x$model)) paste0(": ", x$model), "\n\n", sep = "")
   cat("  Estimate   ", fmt(x$estimate), "\n", sep = "")
   cat("  Boot SE    ", fmt(x$se), "\n", sep = "")

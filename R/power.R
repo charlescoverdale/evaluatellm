@@ -9,7 +9,7 @@ resolve_sd_diff <- function(sd_diff, pilot, p_a, p_b, correlation) {
     return(list(sd = sd_diff, source = "supplied"))
   }
   if (!is.null(pilot)) {
-    if (inherits(pilot, "evalkit_paired")) {
+    if (inherits(pilot, "evaluatellm_paired")) {
       return(list(sd = pilot$se * sqrt(pilot$n_items), source = "pilot comparison"))
     }
     cli_abort("{.arg pilot} must be a result from {.fn ev_paired}.")
@@ -72,7 +72,7 @@ design_effect <- function(icc, cluster_size) {
 #' @param icc Intra-cluster correlation, from [ev_icc()]. Default `0`.
 #' @param cluster_size Questions per cluster. Default `1`, meaning no clustering.
 #'
-#' @return An `evalkit_power` object with elements `n_items`, `n_clusters`,
+#' @return An `evaluatellm_power` object with elements `n_items`, `n_clusters`,
 #'   `delta`, `sd_diff`, `power`, `alpha`, `design_effect`, and `icc`.
 #'
 #' @examples
@@ -116,7 +116,7 @@ ev_power <- function(delta, sd_diff = NULL, pilot = NULL, p_a = NULL, p_b = NULL
     icc           = icc,
     cluster_size  = cluster_size
   )
-  new_ev_result(out, "evalkit_power")
+  new_ev_result(out, "evaluatellm_power")
 }
 
 #' Smallest Difference an Evaluation Can Detect
@@ -133,7 +133,7 @@ ev_power <- function(delta, sd_diff = NULL, pilot = NULL, p_a = NULL, p_b = NULL
 #' @inheritParams ev_power
 #' @param n_items Number of questions available.
 #'
-#' @return An `evalkit_mde` object with elements `mde`, `n_items`,
+#' @return An `evaluatellm_mde` object with elements `mde`, `n_items`,
 #'   `n_effective`, `sd_diff`, `power`, `alpha`, `design_effect`, and `icc`.
 #'
 #' @examples
@@ -178,11 +178,11 @@ ev_mde <- function(n_items, sd_diff = NULL, pilot = NULL, p_a = NULL, p_b = NULL
     icc           = icc,
     cluster_size  = cluster_size
   )
-  new_ev_result(out, "evalkit_mde")
+  new_ev_result(out, "evaluatellm_mde")
 }
 
 #' @export
-print.evalkit_power <- function(x, ...) {
+print.evaluatellm_power <- function(x, ...) {
   cat("\nEvaluation size required\n\n")
   cat("  Questions      ", x$n_items, "\n", sep = "")
   if (!is.na(x$n_clusters)) {
@@ -203,7 +203,7 @@ print.evalkit_power <- function(x, ...) {
 }
 
 #' @export
-print.evalkit_mde <- function(x, ...) {
+print.evaluatellm_mde <- function(x, ...) {
   cat("\nMinimum detectable effect\n\n")
   cat("  MDE            ", fmt(x$mde), "\n", sep = "")
   cat("\n  Questions      ", x$n_items, sep = "")

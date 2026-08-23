@@ -70,7 +70,7 @@ cohen_kappa <- function(a, b) {
 #'   ignored here.
 #' @param level Confidence level. Default `0.95`.
 #'
-#' @return An `evalkit_agreement` object. Always carries `n`, `type`, `bias`,
+#' @return An `evaluatellm_agreement` object. Always carries `n`, `type`, `bias`,
 #'   `bias_conf_low`, `bias_conf_high`, `bias_p_value`, `correlation`,
 #'   `mean_judge`, and `mean_gold`. Binary and categorical scores add
 #'   `accuracy`, `accuracy_conf_low`, `accuracy_conf_high`, `kappa`, `kappa_se`,
@@ -158,7 +158,7 @@ ev_judge_agreement <- function(judge, gold, level = 0.95) {
     out$loa_high <- bias + lim
   }
 
-  new_ev_result(out, "evalkit_agreement")
+  new_ev_result(out, "evaluatellm_agreement")
 }
 
 #' Debias a Model Judge with a Small Human Sample
@@ -197,7 +197,7 @@ ev_judge_agreement <- function(judge, gold, level = 0.95) {
 #'   original prediction-powered estimator, `lambda = 0` the human-only mean.
 #' @param level Confidence level. Default `0.95`.
 #'
-#' @return An `evalkit_debias` object with elements `estimate`, `se`,
+#' @return An `evaluatellm_debias` object with elements `estimate`, `se`,
 #'   `conf_low`, `conf_high`, `lambda`, `estimate_classical`, `se_classical`,
 #'   `estimate_judge`, `judge_bias`, `effective_n`, `precision_gain`,
 #'   `n_labelled`, `n_unlabelled`, `correlation`, and `level`.
@@ -307,7 +307,7 @@ ev_judge_debias <- function(judge, gold, lambda = NULL, level = 0.95) {
     correlation        = if (stats::sd(y) > 0 && stats::sd(fl) > 0) stats::cor(y, fl) else NA_real_,
     level              = level
   )
-  new_ev_result(out, "evalkit_debias")
+  new_ev_result(out, "evaluatellm_debias")
 }
 
 #' How Many Human Labels a Debiased Evaluation Needs
@@ -341,7 +341,7 @@ ev_judge_debias <- function(judge, gold, lambda = NULL, level = 0.95) {
 #' @param power,alpha Used only when `target_mde` is supplied. Defaults `0.8`
 #'   and `0.05`.
 #'
-#' @return An `evalkit_judge_power` object with elements `n_labels`,
+#' @return An `evaluatellm_judge_power` object with elements `n_labels`,
 #'   `n_labels_without_judge`, `saving`, `achieved_se`, `target_se`,
 #'   `correlation`, `lambda`, and `n_total`.
 #'
@@ -362,7 +362,7 @@ ev_judge_power <- function(n_total, correlation = NULL, target_se = NULL,
     cli_abort("{.arg n_total} must be a single number of at least 10.")
   }
   if (!is.null(pilot)) {
-    if (!inherits(pilot, "evalkit_debias")) {
+    if (!inherits(pilot, "evaluatellm_debias")) {
       cli_abort("{.arg pilot} must be a result from {.fn ev_judge_debias}.")
     }
     correlation <- correlation %||% pilot$correlation
@@ -423,11 +423,11 @@ ev_judge_power <- function(n_total, correlation = NULL, target_se = NULL,
     sd_judge               = sd_judge,
     n_total                = n_total
   )
-  new_ev_result(out, "evalkit_judge_power")
+  new_ev_result(out, "evaluatellm_judge_power")
 }
 
 #' @export
-print.evalkit_agreement <- function(x, ...) {
+print.evaluatellm_agreement <- function(x, ...) {
   cat("\nJudge agreement (", x$type, ", n = ", x$n, ")\n\n", sep = "")
   cat("  Mean judge   ", fmt(x$mean_judge), "\n", sep = "")
   cat("  Mean human   ", fmt(x$mean_gold), "\n", sep = "")
@@ -475,7 +475,7 @@ print.evalkit_agreement <- function(x, ...) {
 }
 
 #' @export
-print.evalkit_debias <- function(x, ...) {
+print.evaluatellm_debias <- function(x, ...) {
   cat("\nPrediction-powered evaluation score\n\n")
   cat("  Estimate     ", fmt(x$estimate), "  ",
       fmt_ci(x$conf_low, x$conf_high), "\n", sep = "")
@@ -501,7 +501,7 @@ print.evalkit_debias <- function(x, ...) {
 }
 
 #' @export
-print.evalkit_judge_power <- function(x, ...) {
+print.evaluatellm_judge_power <- function(x, ...) {
   cat("\nHuman labels required\n\n")
   if (is.na(x$n_labels)) {
     cat("  Target standard error ", fmt(x$target_se),

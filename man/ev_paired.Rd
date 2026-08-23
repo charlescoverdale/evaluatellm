@@ -14,7 +14,7 @@ ev_paired(
 )
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object holding both models, or a data frame
+\item{data}{An \code{evaluatellm_eval} object holding both models, or a data frame
 passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{model_a}{Name of the first model. The reported difference is
@@ -30,7 +30,7 @@ column is present. Default \code{TRUE}.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_paired} object with elements \code{estimate}, \code{se},
+An \code{evaluatellm_paired} object with elements \code{estimate}, \code{se},
 \code{se_unpaired}, \code{conf_low}, \code{conf_high}, \code{statistic}, \code{p_value},
 \code{correlation}, \code{variance_reduction}, \code{mean_a}, \code{mean_b}, \code{n_items}, \code{df},
 and \code{level}.

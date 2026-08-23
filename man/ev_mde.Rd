@@ -38,7 +38,7 @@ Used with \code{p_a} and \code{p_b}. Default \code{0}, which is conservative.}
 \item{cluster_size}{Questions per cluster. Default \code{1}, meaning no clustering.}
 }
 \value{
-An \code{evalkit_mde} object with elements \code{mde}, \code{n_items},
+An \code{evaluatellm_mde} object with elements \code{mde}, \code{n_items},
 \code{n_effective}, \code{sd_diff}, \code{power}, \code{alpha}, \code{design_effect}, and \code{icc}.
 }
 \description{

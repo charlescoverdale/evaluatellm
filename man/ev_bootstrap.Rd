@@ -16,7 +16,7 @@ ev_bootstrap(
 )
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object from \code{\link[=as_eval]{as_eval()}}, a data frame, or a
+\item{data}{An \code{evaluatellm_eval} object from \code{\link[=as_eval]{as_eval()}}, a data frame, or a
 bare numeric or logical vector of scores.}
 
 \item{model}{Which model to score. Optional when the data holds only one.}
@@ -35,7 +35,7 @@ returning a single number. Default \code{\link[=mean]{mean()}}.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_bootstrap} object with elements \code{estimate}, \code{se},
+An \code{evaluatellm_bootstrap} object with elements \code{estimate}, \code{se},
 \code{conf_low}, \code{conf_high}, \code{replicates}, \code{R}, \code{type}, and \code{level}.
 }
 \description{

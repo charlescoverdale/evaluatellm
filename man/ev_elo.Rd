@@ -31,7 +31,7 @@ fixes the level of the whole table. Default \code{1500}.}
 \item{level}{Confidence level. Default \code{0.95}.}
 }
 \value{
-An \code{evalkit_elo} object with element \code{models}, a data frame ordered
+An \code{evaluatellm_elo} object with element \code{models}, a data frame ordered
 best first with columns \code{model}, \code{strength} (centred), \code{se}, \code{elo},
 \code{elo_low}, \code{elo_high}, and \code{n_games}.
 }

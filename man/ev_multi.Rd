@@ -19,7 +19,7 @@ optionally named by task. Alternatively a data frame with columns
 Simultaneous intervals use \code{1 - (1 - level) / k}.}
 }
 \value{
-An \code{evalkit_multi} object with elements \code{tasks} (a data frame),
+An \code{evaluatellm_multi} object with elements \code{tasks} (a data frame),
 \code{pooled}, \code{pooled_se}, \code{pooled_conf_low}, \code{pooled_conf_high},
 \code{pooled_p_value}, \code{q_statistic}, \code{q_p_value}, \code{i_squared}, \code{n_tasks},
 \code{n_significant}, \code{method}, and \code{level}.

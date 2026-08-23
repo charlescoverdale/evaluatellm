@@ -13,7 +13,7 @@ ev_resample(
 )
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object with several rows per item and model, or
+\item{data}{An \code{evaluatellm_eval} object with several rows per item and model, or
 a data frame passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{model}{Which model to score. Optional when the data holds only one.}
@@ -26,7 +26,7 @@ standard error. Default \code{c(1, 2, 4, 8, 16, Inf)}.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_resample} object with elements \code{estimate}, \code{se},
+An \code{evaluatellm_resample} object with elements \code{estimate}, \code{se},
 \code{se_floor}, \code{var_between}, \code{var_within}, \code{share_within}, \code{n_items},
 \code{k_mean}, \code{projection}, \code{df}, and \code{level}.
 }

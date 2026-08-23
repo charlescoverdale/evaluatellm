@@ -1,6 +1,6 @@
 test_that("as_eval accepts a bare vector", {
   e <- as_eval(c(1, 0, 1, 1))
-  expect_s3_class(e, "evalkit_eval")
+  expect_s3_class(e, "evaluatellm_eval")
   expect_equal(nrow(e), 4L)
   expect_equal(unique(e$model), "model")
 })

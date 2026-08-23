@@ -1,9 +1,9 @@
 #' Collect Results into a Table
 #'
-#' Flattens one or more `evalkit` results into a plain data frame with a common
+#' Flattens one or more `evaluatellm` results into a plain data frame with a common
 #' set of columns, ready for a paper table or a plot.
 #'
-#' @param ... One or more `evalkit` result objects, or a single list of them.
+#' @param ... One or more `evaluatellm` result objects, or a single list of them.
 #'   Names, where given, become the `label` column.
 #'
 #' @return A data frame with columns `label`, `term`, `estimate`, `se`,
@@ -38,7 +38,7 @@ ev_table <- function(...) {
   rows <- lapply(seq_along(dots), function(i) {
     z <- dots[[i]]
     if (!inherits(z, "ev_result")) {
-      cli_abort("Element {i} is not an {.pkg evalkit} result.")
+      cli_abort("Element {i} is not an {.pkg evaluatellm} result.")
     }
     lab <- if (nzchar(nms[i])) nms[i] else default_label(z, i)
     one_row(z, lab)
@@ -59,14 +59,14 @@ default_label <- function(z, i) {
 one_row <- function(z, label) {
   term <- switch(
     class(z)[1L],
-    evalkit_score     = "score",
-    evalkit_cluster   = "score",
-    evalkit_resample  = "score",
-    evalkit_bootstrap = "score",
-    evalkit_vr        = "score (adjusted)",
-    evalkit_paired    = "difference (paired)",
-    evalkit_unpaired  = "difference (unpaired)",
-    evalkit_debias    = "score (debiased)",
+    evaluatellm_score     = "score",
+    evaluatellm_cluster   = "score",
+    evaluatellm_resample  = "score",
+    evaluatellm_bootstrap = "score",
+    evaluatellm_vr        = "score (adjusted)",
+    evaluatellm_paired    = "difference (paired)",
+    evaluatellm_unpaired  = "difference (unpaired)",
+    evaluatellm_debias    = "score (debiased)",
     class(z)[1L]
   )
   n <- z$n_items %||% z$n_labelled %||% z$n %||% NA_integer_
@@ -89,7 +89,7 @@ one_row <- function(z, label) {
 #' exists to make routine. Accepts the same input as [ev_table()], and also
 #' plots [ev_rank()] and [ev_multi()] objects directly.
 #'
-#' @param x An `evalkit` result, a list of them, or a data frame from
+#' @param x An `evaluatellm` result, a list of them, or a data frame from
 #'   [ev_table()].
 #' @param ... Further results, or graphical parameters passed to
 #'   [graphics::plot()].
@@ -121,17 +121,17 @@ ev_plot <- function(x, ..., reference = NULL, xlab = NULL, main = NULL,
   tab <- if (is.data.frame(x) && all(c("estimate", "conf_low") %in% names(x))) {
     if (is.null(x$label)) x$label <- paste0("row_", seq_len(nrow(x)))
     x
-  } else if (inherits(x, "evalkit_rank")) {
+  } else if (inherits(x, "evaluatellm_rank")) {
     m <- x$models
     data.frame(label = m$model, estimate = m$estimate,
                conf_low = m$conf_low, conf_high = m$conf_high,
                stringsAsFactors = FALSE)
-  } else if (inherits(x, "evalkit_multi")) {
+  } else if (inherits(x, "evaluatellm_multi")) {
     m <- x$tasks
     data.frame(label = m$task, estimate = m$estimate,
                conf_low = m$conf_low, conf_high = m$conf_high,
                stringsAsFactors = FALSE)
-  } else if (inherits(x, "evalkit_elo")) {
+  } else if (inherits(x, "evaluatellm_elo")) {
     m <- x$models
     data.frame(label = m$model, estimate = m$elo,
                conf_low = m$elo_low, conf_high = m$elo_high,

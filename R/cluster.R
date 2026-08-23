@@ -19,10 +19,10 @@
 #' cautious when clusters are few.
 #'
 #' @inheritParams ev_score
-#' @param data An `evalkit_eval` object carrying a cluster column, or a data
+#' @param data An `evaluatellm_eval` object carrying a cluster column, or a data
 #'   frame passed to [as_eval()] along with `...`.
 #'
-#' @return An `evalkit_cluster` object with elements `estimate`, `se`,
+#' @return An `evaluatellm_cluster` object with elements `estimate`, `se`,
 #'   `se_naive`, `conf_low`, `conf_high`, `design_effect`, `icc`, `n_items`,
 #'   `n_clusters`, `mean_cluster_size`, `df`, and `level`.
 #'
@@ -84,7 +84,7 @@ ev_cluster <- function(data, model = NULL, level = 0.95, ...) {
     level             = level,
     model             = unique(d$model)
   )
-  new_ev_result(out, "evalkit_cluster")
+  new_ev_result(out, "evaluatellm_cluster")
 }
 
 #' Intra-Cluster Correlation
@@ -100,7 +100,7 @@ ev_cluster <- function(data, model = NULL, level = 0.95, ...) {
 #' below zero, in which case it is reported as zero and a note is attached.
 #'
 #' @inheritParams ev_score
-#' @param data An `evalkit_eval` object carrying a cluster column, or a data
+#' @param data An `evaluatellm_eval` object carrying a cluster column, or a data
 #'   frame passed to [as_eval()] along with `...`.
 #'
 #' @return A single number between 0 and 1, with attribute `raw` holding the
@@ -155,7 +155,7 @@ icc_oneway <- function(score, cluster) {
 }
 
 #' @export
-print.evalkit_cluster <- function(x, ...) {
+print.evaluatellm_cluster <- function(x, ...) {
   cat("\nCluster-robust evaluation score",
       if (!is.null(x$model)) paste0(": ", x$model), "\n\n", sep = "")
   cat("  Estimate       ", fmt(x$estimate), "\n", sep = "")

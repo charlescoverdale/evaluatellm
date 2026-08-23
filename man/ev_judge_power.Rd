@@ -40,7 +40,7 @@ maximum for a binary score, which is conservative.}
 and \code{0.05}.}
 }
 \value{
-An \code{evalkit_judge_power} object with elements \code{n_labels},
+An \code{evaluatellm_judge_power} object with elements \code{n_labels},
 \code{n_labels_without_judge}, \code{saving}, \code{achieved_se}, \code{target_se},
 \code{correlation}, \code{lambda}, and \code{n_total}.
 }

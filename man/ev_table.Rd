@@ -7,7 +7,7 @@
 ev_table(...)
 }
 \arguments{
-\item{...}{One or more \code{evalkit} result objects, or a single list of them.
+\item{...}{One or more \code{evaluatellm} result objects, or a single list of them.
 Names, where given, become the \code{label} column.}
 }
 \value{
@@ -15,7 +15,7 @@ A data frame with columns \code{label}, \code{term}, \code{estimate}, \code{se},
 \code{conf_low}, \code{conf_high}, \code{p_value}, and \code{n}.
 }
 \description{
-Flattens one or more \code{evalkit} results into a plain data frame with a common
+Flattens one or more \code{evaluatellm} results into a plain data frame with a common
 set of columns, ready for a paper table or a plot.
 }
 \examples{

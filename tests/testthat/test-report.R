@@ -62,7 +62,7 @@ test_that("print methods run without error", {
   d <- data.frame(q = rep(1:150, 2), cl = rep(rep(1:30, each = 5), 2),
                   m = rep(c("a", "b"), each = 150), s = rbinom(300, 1, 0.65))
   e <- as_eval(d, score = s, item = q, model = m, cluster = cl)
-  expect_output(print(e), "evalkit_eval")
+  expect_output(print(e), "evaluatellm_eval")
   expect_output(print(ev_score(e, "a")), "Evaluation score")
   expect_output(print(ev_cluster(e, "a")), "Cluster-robust")
   expect_output(print(ev_paired(e, "a", "b")), "Paired comparison")

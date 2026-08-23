@@ -19,7 +19,7 @@ original prediction-powered estimator, \code{lambda = 0} the human-only mean.}
 \item{level}{Confidence level. Default \code{0.95}.}
 }
 \value{
-An \code{evalkit_debias} object with elements \code{estimate}, \code{se},
+An \code{evaluatellm_debias} object with elements \code{estimate}, \code{se},
 \code{conf_low}, \code{conf_high}, \code{lambda}, \code{estimate_classical}, \code{se_classical},
 \code{estimate_judge}, \code{judge_bias}, \code{effective_n}, \code{precision_gain},
 \code{n_labelled}, \code{n_unlabelled}, \code{correlation}, and \code{level}.

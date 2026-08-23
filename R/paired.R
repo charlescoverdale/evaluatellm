@@ -17,7 +17,7 @@
 #' difference is cluster-robust, and the test uses `G - 1` degrees of freedom.
 #'
 #' @inheritParams ev_score
-#' @param data An `evalkit_eval` object holding both models, or a data frame
+#' @param data An `evaluatellm_eval` object holding both models, or a data frame
 #'   passed to [as_eval()] along with `...`.
 #' @param model_a Name of the first model. The reported difference is
 #'   `model_a - model_b`.
@@ -25,7 +25,7 @@
 #' @param cluster Logical. Use cluster-robust standard errors when a cluster
 #'   column is present. Default `TRUE`.
 #'
-#' @return An `evalkit_paired` object with elements `estimate`, `se`,
+#' @return An `evaluatellm_paired` object with elements `estimate`, `se`,
 #'   `se_unpaired`, `conf_low`, `conf_high`, `statistic`, `p_value`,
 #'   `correlation`, `variance_reduction`, `mean_a`, `mean_b`, `n_items`, `df`,
 #'   and `level`.
@@ -134,7 +134,7 @@ ev_paired <- function(data, model_a = NULL, model_b = NULL, level = 0.95,
     df                 = df,
     level              = level
   )
-  new_ev_result(out, "evalkit_paired")
+  new_ev_result(out, "evaluatellm_paired")
 }
 
 #' Unpaired Comparison of Two Models
@@ -150,7 +150,7 @@ ev_paired <- function(data, model_a = NULL, model_b = NULL, level = 0.95,
 #'
 #' @inheritParams ev_paired
 #'
-#' @return An `evalkit_unpaired` object with elements `estimate`, `se`,
+#' @return An `evaluatellm_unpaired` object with elements `estimate`, `se`,
 #'   `conf_low`, `conf_high`, `statistic`, `p_value`, `mean_a`, `mean_b`,
 #'   `n_a`, `n_b`, `df`, and `level`.
 #'
@@ -219,13 +219,13 @@ ev_unpaired <- function(data, model_a = NULL, model_b = NULL, level = 0.95, ...)
     df        = df,
     level     = level
   )
-  new_ev_result(out, "evalkit_unpaired")
+  new_ev_result(out, "evaluatellm_unpaired")
 }
 
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
 #' @export
-print.evalkit_paired <- function(x, ...) {
+print.evaluatellm_paired <- function(x, ...) {
   cat("\nPaired comparison: ", x$model_a, " vs ", x$model_b, "\n\n", sep = "")
   cat("  ", x$model_a, "  ", fmt(x$mean_a), "\n", sep = "")
   cat("  ", x$model_b, "  ", fmt(x$mean_b), "\n", sep = "")
@@ -251,7 +251,7 @@ print.evalkit_paired <- function(x, ...) {
 }
 
 #' @export
-print.evalkit_unpaired <- function(x, ...) {
+print.evaluatellm_unpaired <- function(x, ...) {
   cat("\nUnpaired comparison: ", x$model_a, " vs ", x$model_b, "\n\n", sep = "")
   cat("  ", x$model_a, "  ", fmt(x$mean_a), "  (n = ", x$n_a, ")\n", sep = "")
   cat("  ", x$model_b, "  ", fmt(x$mean_b), "  (n = ", x$n_b, ")\n", sep = "")

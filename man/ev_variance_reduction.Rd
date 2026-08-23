@@ -15,7 +15,7 @@ ev_variance_reduction(
 )
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object holding both models, or a data frame
+\item{data}{An \code{evaluatellm_eval} object holding both models, or a data frame
 passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{model}{The model being scored.}
@@ -33,7 +33,7 @@ variance-minimising value is estimated from the data.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_vr} object with elements \code{estimate}, \code{se}, \code{conf_low},
+An \code{evaluatellm_vr} object with elements \code{estimate}, \code{se}, \code{conf_low},
 \code{conf_high}, \code{estimate_raw}, \code{se_raw}, \code{theta}, \code{correlation},
 \code{variance_reduction}, \code{effective_n}, \code{n_items}, \code{df}, and \code{level}.
 }

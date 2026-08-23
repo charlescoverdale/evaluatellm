@@ -1,4 +1,4 @@
-Package: evalkit
+Package: evaluatellm
 Title: Statistical Inference for Language Model Evaluations
 Version: 0.1.0
 Authors@R: person("Charles", "Coverdale", email = "charlesfcoverdale@gmail.com",
@@ -22,8 +22,8 @@ Description: Treats language model evaluations as statistical experiments and
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB
-URL: https://charlescoverdale.github.io/evalkit/, https://github.com/charlescoverdale/evalkit
-BugReports: https://github.com/charlescoverdale/evalkit/issues
+URL: https://charlescoverdale.github.io/evaluatellm/, https://github.com/charlescoverdale/evaluatellm
+BugReports: https://github.com/charlescoverdale/evaluatellm/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Depends: R (>= 4.1.0)

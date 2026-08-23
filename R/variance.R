@@ -24,7 +24,7 @@
 #' identically zero.
 #'
 #' @inheritParams ev_score
-#' @param data An `evalkit_eval` object holding both models, or a data frame
+#' @param data An `evaluatellm_eval` object holding both models, or a data frame
 #'   passed to [as_eval()] along with `...`.
 #' @param model The model being scored.
 #' @param reference The reference model used as the control variate.
@@ -33,7 +33,7 @@
 #' @param theta Optional fixed coefficient. Default `NULL`, meaning the
 #'   variance-minimising value is estimated from the data.
 #'
-#' @return An `evalkit_vr` object with elements `estimate`, `se`, `conf_low`,
+#' @return An `evaluatellm_vr` object with elements `estimate`, `se`, `conf_low`,
 #'   `conf_high`, `estimate_raw`, `se_raw`, `theta`, `correlation`,
 #'   `variance_reduction`, `effective_n`, `n_items`, `df`, and `level`.
 #'
@@ -141,11 +141,11 @@ ev_variance_reduction <- function(data, model = NULL, reference = NULL,
     model              = model,
     reference          = reference
   )
-  new_ev_result(out, "evalkit_vr")
+  new_ev_result(out, "evaluatellm_vr")
 }
 
 #' @export
-print.evalkit_vr <- function(x, ...) {
+print.evaluatellm_vr <- function(x, ...) {
   cat("\nControl-variate adjusted score: ", x$model, "\n\n", sep = "")
   cat("  Adjusted     ", fmt(x$estimate), "  ",
       fmt_ci(x$conf_low, x$conf_high), "\n", sep = "")

@@ -1,4 +1,4 @@
 library(testthat)
-library(evalkit)
+library(evaluatellm)
 
-test_check("evalkit")
+test_check("evaluatellm")

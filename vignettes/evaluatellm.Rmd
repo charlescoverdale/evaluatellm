@@ -1,8 +1,8 @@
 ---
-title: "Getting started with evalkit"
+title: "Getting started with evaluatellm"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting started with evalkit}
+  %\VignetteIndexEntry{Getting started with evaluatellm}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,7 +13,7 @@ set.seed(3)
 ```
 
 ```{r setup}
-library(evalkit)
+library(evaluatellm)
 ```
 
 An evaluation is an experiment. It draws a sample of questions from the much

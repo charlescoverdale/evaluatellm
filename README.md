@@ -1,17 +1,17 @@
-# evalkit
+# evaluatellm
 
 <!-- badges: start -->
 <!-- Re-add on CRAN acceptance; both 404 until the package page exists, and
      README.md ships in the tarball so CRAN's incoming URL check would flag it:
-[![CRAN status](https://www.r-pkg.org/badges/version/evalkit)](https://CRAN.R-project.org/package=evalkit)
-[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/evalkit)](https://CRAN.R-project.org/package=evalkit)
+[![CRAN status](https://www.r-pkg.org/badges/version/evaluatellm)](https://CRAN.R-project.org/package=evaluatellm)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/evaluatellm)](https://CRAN.R-project.org/package=evaluatellm)
 -->
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Docs](https://img.shields.io/badge/docs-pkgdown-blue.svg)](https://charlescoverdale.github.io/evalkit/)
+[![Docs](https://img.shields.io/badge/docs-pkgdown-blue.svg)](https://charlescoverdale.github.io/evaluatellm/)
 <!-- badges: end -->
 
 Language model evaluations are experiments, and experiments have standard
-errors. Almost no published evaluation reports one. `evalkit` supplies the
+errors. Almost no published evaluation reports one. `evaluatellm` supplies the
 inference: standard errors that respect how questions were sampled, model
 comparisons that use the pairing you already have, power calculations that tell
 you whether an evaluation can answer its question before you run it, and
@@ -24,14 +24,14 @@ it scores from any harness and it gives you the statistics.
 ## Installation
 
 ```r
-install.packages("evalkit")
+install.packages("evaluatellm")
 ```
 
 Development version:
 
 ```r
 # install.packages("pak")
-pak::pak("charlescoverdale/evalkit")
+pak::pak("charlescoverdale/evaluatellm")
 ```
 
 ## The problem in one number
@@ -51,7 +51,7 @@ One evaluation in four was reporting an interval that did not contain the answer
 ## Usage
 
 ```r
-library(evalkit)
+library(evaluatellm)
 
 e <- as_eval(results, score = correct, item = q, model = model, cluster = passage)
 
@@ -162,7 +162,7 @@ simulation in the test suite:
 
 ## Working with other tools
 
-`evalkit` consumes scores, so it sits downstream of whatever produced them. The
+`evaluatellm` consumes scores, so it sits downstream of whatever produced them. The
 [vitals](https://vitals.tidyverse.org/) package runs evaluations in R and its
 logs pass straight into `as_eval()`; scores exported from Inspect, lm-eval-harness
 or a bespoke pipeline work the same way.

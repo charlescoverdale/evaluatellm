@@ -19,12 +19,12 @@
 #' component below zero, in which case it is reported as zero.
 #'
 #' @inheritParams ev_score
-#' @param data An `evalkit_eval` object with several rows per item and model, or
+#' @param data An `evaluatellm_eval` object with several rows per item and model, or
 #'   a data frame passed to [as_eval()] along with `...`.
 #' @param k_grid Integer vector of `k` values at which to report the projected
 #'   standard error. Default `c(1, 2, 4, 8, 16, Inf)`.
 #'
-#' @return An `evalkit_resample` object with elements `estimate`, `se`,
+#' @return An `evaluatellm_resample` object with elements `estimate`, `se`,
 #'   `se_floor`, `var_between`, `var_within`, `share_within`, `n_items`,
 #'   `k_mean`, `projection`, `df`, and `level`.
 #'
@@ -111,11 +111,11 @@ ev_resample <- function(data, model = NULL, level = 0.95,
     level           = level,
     model           = unique(d$model)
   )
-  new_ev_result(out, "evalkit_resample")
+  new_ev_result(out, "evaluatellm_resample")
 }
 
 #' @export
-print.evalkit_resample <- function(x, ...) {
+print.evaluatellm_resample <- function(x, ...) {
   cat("\nRepeated-sampling variance decomposition",
       if (!is.null(x$model)) paste0(": ", x$model), "\n\n", sep = "")
   cat("  Estimate     ", fmt(x$estimate), "\n", sep = "")

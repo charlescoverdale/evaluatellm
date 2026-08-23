@@ -37,7 +37,7 @@ Only needed if the same item and model appear on several rows and you want
 \code{\link[=ev_resample]{ev_resample()}} to decompose the variance.}
 }
 \value{
-An \code{evalkit_eval} object: a data frame with columns \code{item}, \code{model},
+An \code{evaluatellm_eval} object: a data frame with columns \code{item}, \code{model},
 \code{score}, and, when supplied, \code{cluster} and \code{sample}.
 }
 \description{

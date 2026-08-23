@@ -1,4 +1,4 @@
-url: https://charlescoverdale.github.io/evalkit/
+url: https://charlescoverdale.github.io/evaluatellm/
 
 template:
   bootstrap: 5
@@ -46,4 +46,4 @@ reference:
 
   - title: "Package"
     contents:
-      - evalkit-package
+      - evaluatellm-package

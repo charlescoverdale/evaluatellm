@@ -7,7 +7,7 @@
 ev_cluster(data, model = NULL, level = 0.95, ...)
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object carrying a cluster column, or a data
+\item{data}{An \code{evaluatellm_eval} object carrying a cluster column, or a data
 frame passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{model}{Which model to score. Optional when the data holds only one.}
@@ -17,7 +17,7 @@ frame passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_cluster} object with elements \code{estimate}, \code{se},
+An \code{evaluatellm_cluster} object with elements \code{estimate}, \code{se},
 \code{se_naive}, \code{conf_low}, \code{conf_high}, \code{design_effect}, \code{icc}, \code{n_items},
 \code{n_clusters}, \code{mean_cluster_size}, \code{df}, and \code{level}.
 }

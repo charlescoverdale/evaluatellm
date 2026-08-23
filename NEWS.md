@@ -1,4 +1,4 @@
-# evalkit 0.1.0
+# evaluatellm 0.1.0
 
 First release.
 

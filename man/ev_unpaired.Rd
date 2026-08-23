@@ -7,7 +7,7 @@
 ev_unpaired(data, model_a = NULL, model_b = NULL, level = 0.95, ...)
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object holding both models, or a data frame
+\item{data}{An \code{evaluatellm_eval} object holding both models, or a data frame
 passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{model_a}{Name of the first model. The reported difference is
@@ -20,7 +20,7 @@ passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_unpaired} object with elements \code{estimate}, \code{se},
+An \code{evaluatellm_unpaired} object with elements \code{estimate}, \code{se},
 \code{conf_low}, \code{conf_high}, \code{statistic}, \code{p_value}, \code{mean_a}, \code{mean_b},
 \code{n_a}, \code{n_b}, \code{df}, and \code{level}.
 }

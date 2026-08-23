@@ -7,7 +7,7 @@
 ev_rank(data, R = 2000, level = 0.95, higher_better = TRUE, seed = NULL, ...)
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object holding several models, or a data frame
+\item{data}{An \code{evaluatellm_eval} object holding several models, or a data frame
 passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{R}{Number of bootstrap replicates. Default \code{2000}.}
@@ -22,7 +22,7 @@ Default \code{TRUE}.}
 \item{...}{Passed to \code{\link[=as_eval]{as_eval()}} when \code{data} is a plain data frame.}
 }
 \value{
-An \code{evalkit_rank} object with element \code{models}, a data frame ordered
+An \code{evaluatellm_rank} object with element \code{models}, a data frame ordered
 best first with columns \code{model}, \code{estimate}, \code{se}, \code{conf_low}, \code{conf_high},
 \code{rank}, \code{rank_low}, \code{rank_high}, and \code{p_best}.
 }

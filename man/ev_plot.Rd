@@ -7,7 +7,7 @@
 ev_plot(x, ..., reference = NULL, xlab = NULL, main = NULL, col = "#1b365d")
 }
 \arguments{
-\item{x}{An \code{evalkit} result, a list of them, or a data frame from
+\item{x}{An \code{evaluatellm} result, a list of them, or a data frame from
 \code{\link[=ev_table]{ev_table()}}.}
 
 \item{...}{Further results, or graphical parameters passed to

@@ -14,13 +14,13 @@
 #' dependence structure that [ev_cluster()] handles analytically.
 #'
 #' @inheritParams ev_bootstrap
-#' @param data An `evalkit_eval` object holding several models, or a data frame
+#' @param data An `evaluatellm_eval` object holding several models, or a data frame
 #'   passed to [as_eval()] along with `...`.
 #' @param R Number of bootstrap replicates. Default `2000`.
 #' @param higher_better Logical. Whether a larger score means a better model.
 #'   Default `TRUE`.
 #'
-#' @return An `evalkit_rank` object with element `models`, a data frame ordered
+#' @return An `evaluatellm_rank` object with element `models`, a data frame ordered
 #'   best first with columns `model`, `estimate`, `se`, `conf_low`, `conf_high`,
 #'   `rank`, `rank_low`, `rank_high`, and `p_best`.
 #'
@@ -115,7 +115,7 @@ ev_rank <- function(data, R = 2000, level = 0.95, higher_better = TRUE,
     n_items = n,
     clustered = !is.null(cl),
     higher_better = higher_better
-  ), "evalkit_rank")
+  ), "evaluatellm_rank")
 }
 
 #' Bradley-Terry Ratings from Pairwise Preferences
@@ -148,7 +148,7 @@ ev_rank <- function(data, R = 2000, level = 0.95, higher_better = TRUE,
 #'   fixes the level of the whole table. Default `1500`.
 #' @param level Confidence level. Default `0.95`.
 #'
-#' @return An `evalkit_elo` object with element `models`, a data frame ordered
+#' @return An `evaluatellm_elo` object with element `models`, a data frame ordered
 #'   best first with columns `model`, `strength` (centred), `se`, `elo`,
 #'   `elo_low`, `elo_high`, and `n_games`.
 #'
@@ -261,11 +261,11 @@ ev_elo <- function(data, model_a, model_b, winner, ties = c("drop", "split"),
     level       = level,
     ties        = ties,
     converged   = isTRUE(fit$converged)
-  ), "evalkit_elo")
+  ), "evaluatellm_elo")
 }
 
 #' @export
-print.evalkit_rank <- function(x, ...) {
+print.evaluatellm_rank <- function(x, ...) {
   cat("\nLeaderboard with bootstrap rank intervals\n\n")
   m <- x$models
   w <- max(nchar(m$model), 5)
@@ -291,7 +291,7 @@ print.evalkit_rank <- function(x, ...) {
 }
 
 #' @export
-print.evalkit_elo <- function(x, ...) {
+print.evaluatellm_elo <- function(x, ...) {
   cat("\nBradley-Terry ratings (", x$n_games, " comparisons, ",
       x$n_models, " models)\n\n", sep = "")
   m <- x$models

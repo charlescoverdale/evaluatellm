@@ -28,7 +28,7 @@
 #'   Only needed if the same item and model appear on several rows and you want
 #'   [ev_resample()] to decompose the variance.
 #'
-#' @return An `evalkit_eval` object: a data frame with columns `item`, `model`,
+#' @return An `evaluatellm_eval` object: a data frame with columns `item`, `model`,
 #'   `score`, and, when supplied, `cluster` and `sample`.
 #'
 #' @references
@@ -53,7 +53,7 @@
 #' @export
 as_eval <- function(data, score = NULL, item = NULL, model = NULL,
                     cluster = NULL, sample = NULL) {
-  if (inherits(data, "evalkit_eval")) return(data)
+  if (inherits(data, "evaluatellm_eval")) return(data)
 
   if (is.numeric(data) || is.logical(data)) {
     s <- validate_scores(data)
@@ -63,7 +63,7 @@ as_eval <- function(data, score = NULL, item = NULL, model = NULL,
       score = s,
       stringsAsFactors = FALSE
     )
-    return(structure(out, class = c("evalkit_eval", "data.frame")))
+    return(structure(out, class = c("evaluatellm_eval", "data.frame")))
   }
 
   if (!is.data.frame(data)) {
@@ -94,7 +94,7 @@ as_eval <- function(data, score = NULL, item = NULL, model = NULL,
     ))
   }
 
-  structure(out, class = c("evalkit_eval", "data.frame"))
+  structure(out, class = c("evaluatellm_eval", "data.frame"))
 }
 
 # Resolve an unquoted or string column reference against a data frame.
@@ -164,10 +164,10 @@ item_level <- function(d) {
 }
 
 #' @export
-print.evalkit_eval <- function(x, ...) {
+print.evaluatellm_eval <- function(x, ...) {
   n_item  <- length(unique(x$item))
   n_model <- length(unique(x$model))
-  cat("<evalkit_eval>\n")
+  cat("<evaluatellm_eval>\n")
   cat("  rows    ", nrow(x), "\n", sep = "")
   cat("  items   ", n_item, "\n", sep = "")
   cat("  models  ", n_model, " (", paste(utils::head(unique(x$model), 4),

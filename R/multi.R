@@ -28,7 +28,7 @@
 #' @param level Confidence level for the per-task intervals. Default `0.95`.
 #'   Simultaneous intervals use `1 - (1 - level) / k`.
 #'
-#' @return An `evalkit_multi` object with elements `tasks` (a data frame),
+#' @return An `evaluatellm_multi` object with elements `tasks` (a data frame),
 #'   `pooled`, `pooled_se`, `pooled_conf_low`, `pooled_conf_high`,
 #'   `pooled_p_value`, `q_statistic`, `q_p_value`, `i_squared`, `n_tasks`,
 #'   `n_significant`, `method`, and `level`.
@@ -113,7 +113,7 @@ ev_multi <- function(results, method = "holm", level = 0.95) {
     method           = method,
     level            = level
   )
-  new_ev_result(out, "evalkit_multi")
+  new_ev_result(out, "evaluatellm_multi")
 }
 
 # Coerce a list of comparison objects, or a data frame, to a common table.
@@ -132,7 +132,7 @@ as_effect_table <- function(results) {
     )
   } else if (is.list(results)) {
     ok <- vapply(results, function(z) {
-      inherits(z, c("evalkit_paired", "evalkit_unpaired")) ||
+      inherits(z, c("evaluatellm_paired", "evaluatellm_unpaired")) ||
         (is.list(z) && all(c("estimate", "se") %in% names(z)))
     }, logical(1))
     if (!all(ok)) {
@@ -165,7 +165,7 @@ as_effect_table <- function(results) {
 }
 
 #' @export
-print.evalkit_multi <- function(x, ...) {
+print.evaluatellm_multi <- function(x, ...) {
   alpha <- 1 - x$level
   cat("\nBenchmark suite: ", x$n_tasks, " tasks\n\n", sep = "")
   t <- x$tasks

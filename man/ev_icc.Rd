@@ -7,7 +7,7 @@
 ev_icc(data, model = NULL, ...)
 }
 \arguments{
-\item{data}{An \code{evalkit_eval} object carrying a cluster column, or a data
+\item{data}{An \code{evaluatellm_eval} object carrying a cluster column, or a data
 frame passed to \code{\link[=as_eval]{as_eval()}} along with \code{...}.}
 
 \item{model}{Which model to score. Optional when the data holds only one.}
