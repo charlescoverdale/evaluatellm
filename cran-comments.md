@@ -1,16 +1,13 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes (local)
+0 errors | 0 warnings | 1 note (win-builder, the new-submission note)
 
 ## Test environments
 
 - macOS Tahoe 26.5 (local, aarch64), R 4.5.2, `--as-cran --run-donttest`
-- win-builder, R-devel and R-release: submitted 23 August 2026, results
-  pending at the time of writing
-
-The earlier win-builder runs recorded here were made under the package's
-previous name and have been removed rather than carried over, since they
-do not correspond to this tarball.
+- win-builder, R 4.6.1 (2026-06-24 ucrt): 1 NOTE
+- win-builder, R-devel (2026-08-22 r90443 ucrt): 1 NOTE
 
 ## Submission notes
 
