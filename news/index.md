@@ -2,6 +2,8 @@
 
 ## evaluatellm 0.1.0
 
+CRAN release: 2026-09-15
+
 Pre-submission audit fixes, ahead of the first CRAN release.
 
 - [`ev_bootstrap()`](https://charlescoverdale.github.io/evaluatellm/reference/ev_bootstrap.md)
