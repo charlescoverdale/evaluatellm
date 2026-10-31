@@ -202,6 +202,14 @@ out of scope and upstream of everything here.
 logs pass straight into `as_eval()`; scores exported from Inspect, lm-eval-harness
 or a bespoke pipeline work the same way.
 
+## Related packages
+
+| Package | Description |
+|---|---|
+| [`predictset`](https://github.com/charlescoverdale/predictset) | Conformal prediction intervals |
+| [`aieconindex`](https://github.com/charlescoverdale/aieconindex) | Anthropic Economic Index data in R |
+| [`ivcheck`](https://github.com/charlescoverdale/ivcheck) | IV diagnostics and LATE-assumption falsification |
+
 ## References
 
 Miller, E. (2024). Adding Error Bars to Evals: A Statistical Approach to Language
