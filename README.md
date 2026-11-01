@@ -91,7 +91,17 @@ already removed the passage difficulty both models faced.
 ```r
 ev_mde(n_items = 500, p_a = 0.72, p_b = 0.70, correlation = 0.7,
        icc = 0.25, cluster_size = 8)
-#>   MDE            0.0552
+#> Minimum detectable effect
+#> 
+#>   MDE            0.0730
+#> 
+#>   Questions      500 (effective 182)
+#>   SD of diff     0.3515 (binary scores)
+#>   Power          80%
+#>   Alpha          0.05 two-sided
+#>   Design effect  2.75
+#> 
+#>   A true difference below 0.0730 will usually be missed.
 ```
 
 Five hundred clustered questions cannot detect a two point gain. Reporting a null
