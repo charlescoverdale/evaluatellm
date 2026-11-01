@@ -92,7 +92,17 @@ models faced.
 
 ev_mde(n_items = 500, p_a = 0.72, p_b = 0.70, correlation = 0.7,
        icc = 0.25, cluster_size = 8)
-#>   MDE            0.0552
+#> Minimum detectable effect
+#> 
+#>   MDE            0.0730
+#> 
+#>   Questions      500 (effective 182)
+#>   SD of diff     0.3515 (binary scores)
+#>   Power          80%
+#>   Alpha          0.05 two-sided
+#>   Design effect  2.75
+#> 
+#>   A true difference below 0.0730 will usually be missed.
 ```
 
 Five hundred clustered questions cannot detect a two point gain.
@@ -217,6 +227,14 @@ evaluations in R and its logs pass straight into
 [`as_eval()`](https://charlescoverdale.github.io/evaluatellm/reference/as_eval.md);
 scores exported from Inspect, lm-eval-harness or a bespoke pipeline work
 the same way.
+
+## Related packages
+
+| Package | Description |
+|----|----|
+| [`predictset`](https://github.com/charlescoverdale/predictset) | Conformal prediction intervals |
+| [`aieconindex`](https://github.com/charlescoverdale/aieconindex) | Anthropic Economic Index data in R |
+| [`ivcheck`](https://github.com/charlescoverdale/ivcheck) | IV diagnostics and LATE-assumption falsification |
 
 ## References
 
